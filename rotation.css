@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html, body {
+    width: 100svw;
+    height: 100svh;
+    margin: 0;
+}
+
+.background {
+    background-color: #201414;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    background-color: #281c14;
+    width: 95%;
+    height: 90%;
+    border: 1px solid #5c493f;
+    display: flex;
+}
+
+.char-list-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1
+}
+
+.char {
+    height: 130px;
+    position: relative;
+    scale: 0.8;
+    align-items: center;
+    justify-content: center;
+}
+
+.char-list {
+    display: grid;
+    border: 1px solid #5c493f;
+    margin: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    grid-template-columns: repeat(6, 130px);
+}
+
+.char-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #5c493f;
+    margin: 15px;
+}
+
+.char-selected {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.track-div {
+    border: 1px solid #5c493f;
+    display: flex;
+    flex: 1;
+    margin: 15px;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.track-container {
+    display: flex;
+    margin: 4px;
+    flex-wrap: wrap;
+    padding-left: 5px;
+    padding-top: 0px;
+    width: 90%;
+    gap: 15px;
+    height: fit-content;
+}
+
+.char-name {
+    color: white;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    margin-top: -10px;
+    user-select: none;
+}
+
+.char-date {
+    color:chartreuse ;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.7rem;
+    position:relative;
+    bottom: 60%;
+    font-weight: 1000;
+    -webkit-text-stroke: 1px rgba(0,0,0, 0.8);
+    user-select: none;
+    pointer-events: none;
+}
+
+.char-date-container {
+    color:chartreuse ;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 1000;
+    -webkit-text-stroke: 1px rgba(0,0,0, 0.8);
+    user-select: none;
+    pointer-events: none;
+    margin: 2PX;
+}
+
+.char-img {
+    height: 130px;
+}
+
+.char-img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.search {
+    display: flex;
+    border: 1px solid #5c493f;
+    margin: 15px;
+    margin-bottom: 0;
+}
+
+.search-bar {
+    border: 1px solid #5c493f;
+    background-color: transparent;
+    margin: 5px;
+    height: 25px;
+    width: 250px;
+    color: white;
+    font-size: 1rem;
+    padding-left: 5px;
+}
+
+.classes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.class-bt {
+    filter: brightness(70%);
+}
+
+.class-bt:hover {
+    cursor: pointer;
+    filter: brightness(110%);
+}
+
+.class-bt.selected {
+    filter: brightness(150%);
+}
+
+.assinatura {
+    position:fixed;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    bottom:0;
+    right: 10px;
+    font-size: 0.8rem;
+}
+
+.green {
+    color:chartreuse;
+}
+
+.white {
+    color: white;
+}
+
+.orange {
+    color: orange;
+}
+
+.red {
+    color: red;
+}
+
+.noRot {
+    color:mediumslateblue ;
+}
+
+.rot-bt {
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin: 15px;
+    background-color: #281c14;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 100%;
+    flex-direction: column;
+    user-select: none;
+}
+
+.rot-bt:hover {
+    cursor: pointer;
+    filter: brightness(2);
+}

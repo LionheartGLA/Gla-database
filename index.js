@@ -3735,5 +3735,5 @@ quizBt.addEventListener('click', function(event) {
 document.querySelector('.bt-div').addEventListener('click', resetAll);
 
 document.querySelector('.rot-bt').addEventListener('click', () => {
-    window.location.replace("./rotation/rotation.html");
+    window.location.replace("rotation.html");
 })
