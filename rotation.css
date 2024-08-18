@@ -47,6 +47,8 @@ html, body {
     overflow-x: hidden;
     grid-template-columns: repeat(6, 130px);
     row-gap: 15px;
+    height: fit-content;
+    padding: 10px;
 }
 
 .char-main {
