@@ -59,6 +59,7 @@ html, body {
     align-items: center;
     border: 1px solid #5c493f;
     margin: 15px;
+    margin-bottom: 23px;
 }
 
 .char-selected {
