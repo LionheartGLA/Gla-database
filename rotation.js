@@ -10,7 +10,7 @@ const chars = [
     { name: "Brook", type: "gold", dates: ["16-08-2024", "14-06-2024", "10-05-2024"],image: "Img/Medals/Brook.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
     { name: "Capone Gang Bege", type: "gold", dates: ["28-06-2024", "26-04-2024", "07-06-2024"],image: "Img/Medals/Capone.png", class: ["Atirador", "DPS", "Supernova", "Fruta do Diabo"] },
     { name: "Carrot", type: "gold", dates: ["16-08-2024", "21-06-2024", "26-04-2024", "31-05-2024"],image: "Img/Medals/Carrot.png", class: ["Cortante", "Especialista", "DPS", "Mulher"] },
-    { name: "Chopper", type: "gold", dates: ["02-08-2024", "28-06-2024", "17-05-2024"],image: "Img/Medals/Chopper.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
+    { name: "Tony Tony Chopper", type: "gold", dates: ["02-08-2024", "28-06-2024", "17-05-2024"],image: "Img/Medals/Chopper.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
     { name: "Crocodile", type: "gold", dates: ["16-08-2024", "26-07-2024", "24-05-2024"],image: "Img/Medals/Crocodile.png", class: ["Especialista", "Tanque", "Fruta do Diabo", "Shichibukai"] },
     { name: "Dalmatian", type: "gold", dates: ["19-07-2024", "22-03-2024", "07-06-2024"],image: "Img/Medals/Dalmatian.png", class: ["Cortante", "Bruiser", "Marinheiro", "Fruta do Diabo"] },
     { name: "X Drake", type: "gold", dates: ["02-08-2024", "26-07-2024", "03-05-2024"],image: "Img/Medals/Drake.png", class: ["Lutador", "Bruiser", "Fruta do Diabo", "Supernova", "Marinheiro"] },
@@ -175,16 +175,12 @@ function displayCharacters(characters) {
     characters.forEach(char => {
         const charDiv = document.createElement('div');
         charDiv.classList.add('char');
+        charDiv.style.backgroundImage = `url(${char.image})`;
 
-        const imageElement = document.createElement('img');
-        imageElement.src = char.image;
-        imageElement.classList.add('char-img');
-        charDiv.appendChild(imageElement);
-
-        const nameElement = document.createElement('p');
-        nameElement.textContent = char.name;
-        nameElement.classList.add('char-name');
-        charDiv.appendChild(nameElement);
+        //const imageElement = document.createElement('img');
+        //imageElement.src = char.image;
+        //imageElement.classList.add('char-img');
+        //charDiv.appendChild(imageElement);
 
         // Get the latest date from char.dates
         const latestDate = char.dates.length > 0 ? char.dates[0] : "01-01-1970";
@@ -202,7 +198,12 @@ function displayCharacters(characters) {
 
         charDiv.appendChild(dateElement);
 
-        imageElement.addEventListener('click', () => {
+        const nameElement = document.createElement('p');
+        nameElement.textContent = char.name;
+        nameElement.classList.add('char-name');
+        charDiv.appendChild(nameElement);
+
+        charDiv.addEventListener('click', () => {
             selectChar(char);
         });
 

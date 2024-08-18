@@ -30,11 +30,13 @@ html, body {
 }
 
 .char {
-    height: 130px;
-    position: relative;
-    scale: 0.8;
-    align-items: center;
-    justify-content: center;
+    height: 150px;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position:center;
+    justify-content: flex-end;
 }
 
 .char-list {
@@ -44,6 +46,7 @@ html, body {
     overflow-y: scroll;
     overflow-x: hidden;
     grid-template-columns: repeat(6, 130px);
+    row-gap: 15px;
 }
 
 .char-main {
@@ -88,21 +91,21 @@ html, body {
     text-align: center;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
-    margin-top: -10px;
     user-select: none;
+    margin: 0;
+    width: 130px;
+    height: 20px;
 }
 
 .char-date {
-    color:chartreuse ;
     text-align: center;
     font-family: "Roboto", sans-serif;
     font-size: 1.7rem;
-    position:relative;
-    bottom: 60%;
     font-weight: 1000;
     -webkit-text-stroke: 1px rgba(0,0,0, 0.8);
     user-select: none;
     pointer-events: none;
+    margin: 0;
 }
 
 .char-date-container {
@@ -117,11 +120,7 @@ html, body {
     margin: 2PX;
 }
 
-.char-img {
-    height: 130px;
-}
-
-.char-img:hover {
+.char:hover {
     cursor: pointer;
     transform: scale(1.2);
 }
