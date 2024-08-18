@@ -47,8 +47,9 @@ html, body {
     overflow-x: hidden;
     grid-template-columns: repeat(6, 130px);
     row-gap: 15px;
-    height: fit-content;
     padding: 10px;
+    margin-bottom: 4px;
+    height: 100%;
 }
 
 .char-main {
@@ -192,8 +193,32 @@ html, body {
     color: red;
 }
 
+.ex {
+    font-family: 'roboto';
+    user-select: none;
+}
+
+.ex.selected {
+    border-bottom: 1px solid white;
+}
+
+.ex:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
 .noRot {
-    color:mediumslateblue ;
+    color:mediumslateblue;
+    font-family: 'roboto';
+}
+
+.explanation {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 4px;
 }
 
 .rot-bt {
