@@ -3635,6 +3635,22 @@ const answers = [
     },
 ]
 
+function updateScale(){
+    const container = document.querySelector('.main-memory');
+    const vpWidth = window.innerWidth;
+    const vpHeight = window.innerHeight;
+
+    const scaleX = vpWidth / 668;
+    const scaleY = vpHeight / 668;
+
+    const scale = Math.min(scaleX, scaleY);
+
+    container.style.transform = `scale(${scale})`
+}
+
+updateScale();
+window.addEventListener('resize', updateScale);
+
 function renderAnswers(filteredAnswers){
     answersDiv.innerHTML = '';
     filteredAnswers.forEach(answer => {
@@ -3662,17 +3678,21 @@ quizInput.addEventListener('input', filterAnswers);
 
 renderAnswers(answers);
 
+const background = document.querySelector('.bg-img');
+
 function setTab(tabName){
     if(tabName === 'memory'){
         memoryDiv.style.display = 'flex';
         quizDiv.style.display = 'none';
         memoryBt.classList.add('selected');
         quizBt.classList.remove('selected');
+        background.style.backgroundImage = "url('Img/background.png')";
     } else if (tabName === 'quiz'){
         quizDiv.style.display = 'flex';
         memoryDiv.style.display = 'none';
         quizBt.classList.add('selected');
         memoryBt.classList.remove('selected');
+        background.style.backgroundImage = "none";
     }
 }
 
