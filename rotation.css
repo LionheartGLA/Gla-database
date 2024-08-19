@@ -230,3 +230,25 @@ html, body {
     gap: 40px;
     margin-bottom: 4px;
 }
+
+.rot-bt {
+    position:absolute;
+    left: 0;
+    top: 0;
+    margin: 15px;
+    background-color: #281c14;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 100%;
+    flex-direction: column;
+    user-select: none;
+}
+
+.rot-bt:hover {
+    cursor: pointer;
+    filter: brightness(2);
+}
