@@ -42,9 +42,30 @@ const chars = [
     { name: "Roronoa Zoro", type: "gold", dates: ["23-08-2024", "19-07-2024", "31-05-2024"], image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
 ]
 
-let lastDate = "23-08-2024";
+const lastDate = "23-08-2024";
 let selectedChar = chars[0];
 
+const rotationOne = getRotationChars(['Smoker', 'Van Augur', 'Roronoa Zoro']);
+const rotationTwo = getRotationChars(['Dalmatian', 'Monkey D. Luffy', 'Trafalgar Law']);
+
+function getRotationChars(rotation) {
+    return chars.filter(char => rotation.includes(char.name));
+}
+
+function populateRotation(div, rotation){
+    const container = document.querySelector(div);
+
+    rotation.forEach((char,index) => {
+        const imgElement = document.createElement('img');
+        imgElement.classList.add('rotation-img');
+        imgElement.classList.add(`rot-${index}`);
+        imgElement.src = char.image;
+        container.appendChild(imgElement);
+    })
+}
+
+populateRotation('.rotationOne', rotationOne);
+populateRotation('.rotationTwo', rotationTwo);
 
 function calcDate(date) {
     try {

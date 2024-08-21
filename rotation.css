@@ -60,6 +60,47 @@ html, body {
     background-color: var(--background);
 }
 
+.rotations {
+    display: flex;
+    border: 1px solid var(--border);
+    height: fit-content;
+    width: 92%;
+    margin: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.chest {
+    display: flex;
+    background-image: url('Img/chest.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.rotation-img {
+    width: 66px;
+    height: 68px;
+    position: relative;
+}
+
+.rot-0 {
+    left: 14px;
+}
+
+.rot-1 {
+    bottom: 22px;
+}
+
+.rot-2 {
+    right: 24px;
+}
+
 .char-main {
     display: flex;
     flex: 1;
@@ -68,6 +109,7 @@ html, body {
     border: 1px solid var(--border);
     margin: 15px;
     margin-bottom: 23px;
+    margin-left: 0;
 }
 
 .char-selected {
@@ -84,7 +126,7 @@ html, body {
     flex: 1;
     margin: 15px;
     flex-wrap: wrap;
-    width: 90%;
+    width: 92%;
     background-color: var(--background);
 }
 
