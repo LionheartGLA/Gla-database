@@ -3675,6 +3675,11 @@ function filterAnswers() {
 
 quizInput.addEventListener('input', filterAnswers);
 
+document.querySelector('.erase-bt').addEventListener('click', () => {
+    quizInput.value = '';
+    filterAnswers();
+})
+
 
 renderAnswers(answers);
 

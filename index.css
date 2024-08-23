@@ -83,6 +83,14 @@ body {
     justify-content: center;
 }
 
+.quiz-input-box {
+    display: flex;
+    width: 100%;
+    border: 1px solid #4c3a2e;
+    padding: 5px;
+    gap: 3px;
+}
+
 .quiz-input {
     border: 1px solid #4c3a2e;
     background-color: var(--background-color);
@@ -91,7 +99,32 @@ body {
     font-size: 1.2rem;
     padding: 5px;
     font-family: 'roboto';
-    width: 99.4%;
+    width: 100%;
+}
+
+.quiz-input:focus {
+    outline: 2px solid #6b5547;
+}
+
+.erase-bt {
+    width: 45px;
+    border: 1px solid #4c3a2e;
+    background-color: rgba(255, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.erase-bt:hover {
+    cursor: pointer;
+    filter: brightness(1.4);
+    scale: 1.1;
+}
+
+.backspace {
+    scale: 1.4;
+    margin-right: 2px;
 }
 
 .quiz-container {
