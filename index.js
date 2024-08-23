@@ -239,7 +239,7 @@ const answers = [
     },
     {
         "text": "[GLA] Ninjin, um dos Piratas do Usopp, dá algumas missões em Syrup Village.",
-        "type": "true"
+        "type": "false"
     },
     {
         "text": "[GLA] O jogo está traduzido para os seguintes idiomas: Inglês, Português, Espanhol e Polonês.",
@@ -2095,7 +2095,7 @@ const answers = [
     },
     {
         "text": "[GLA] Ninjin, um dos Piratas do Usopp, dá uma missão em Syrup Village.",
-        "type": "false"
+        "type": "true"
     },
     {
         "text": "[GLA] No tutorial do jogo, o NPC que passa instruções para você é o Woop Slap, o prefeito de Foosha Village.",
