@@ -3761,3 +3761,9 @@ document.querySelector('.rot-bt').addEventListener('click', () => {
 document.querySelector('.dima-bt').addEventListener('click', () => {
     window.location.replace("dima.html");
 })
+
+document.addEventListener('keydown', function(event) {
+    if (event.code === 'Space') {
+        resetAll()
+    }
+});
