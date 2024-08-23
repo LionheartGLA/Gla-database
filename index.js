@@ -3757,3 +3757,7 @@ document.querySelector('.bt-div').addEventListener('click', resetAll);
 document.querySelector('.rot-bt').addEventListener('click', () => {
     window.location.replace("rotation.html");
 })
+
+document.querySelector('.dima-bt').addEventListener('click', () => {
+    window.location.replace("dima.html");
+})

@@ -216,10 +216,20 @@ body {
     background-color: rgba(200, 100, 100, 0.8);
 }
 
-.rot-bt {
+.menu {
     position: absolute;
     left: 0;
     margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    user-select: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rot-bt {
     background-color: var(--backgroundT);
     height: 40px;
     width: 40px;
@@ -229,11 +239,25 @@ body {
     filter: brightness(1.6);
     border-radius: 100%;
     flex-direction: column;
-    user-select: none;
-    z-index: 1;
 }
 
-.rot-bt:hover {
+.dima-bt {
+    background-color: var(--backgroundT);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(1.6);
+    border-radius: 100%;
+    flex-direction: column;
+}
+
+.dima-icon {
+    filter: brightness(0.7);
+}
+
+.rot-bt:hover, .dima-bt:hover {
     cursor: pointer;
     filter: brightness(2);
 }
