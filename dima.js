@@ -60,18 +60,12 @@ function addCharToList() {
     chars.forEach(function (character) {
         var charDiv = document.createElement("div");
         charDiv.classList.add("char");
+        charDiv.style.backgroundImage = `url('${character.image}')`;
 
-        var imageElement = document.createElement("img");
         var textElement = document.createElement("p");
         textElement.innerText = character.name
         textElement.classList.add("title");
 
-        imageElement.src = character.image;
-        imageElement.alt = character.name;
-        imageElement.style.width = "113px";
-        imageElement.style.height= "116px"
-
-        charDiv.appendChild(imageElement);
         charDiv.appendChild(textElement);
 
         charListDiv.appendChild(charDiv);
@@ -97,7 +91,7 @@ function filterChars() {
     var filteredChars = document.querySelectorAll('.char');
     filteredChars.forEach(function (char) {
         var charData = chars.find(function (character) {
-            return character.name === char.querySelector('img').alt;
+            return character.name === char.querySelector('p').innerHTML;
         });
 
         var showChar = true;

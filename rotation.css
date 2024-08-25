@@ -46,18 +46,23 @@ html, body {
     justify-content: flex-end;
 }
 
-.char-list {
-    display: grid;
+.char-list-div {
+    display: flex;
+    height: 100%;
     border: 1px solid var(--border);
-    margin: 15px;
+    background-color: var(--background);
     overflow-y: scroll;
     overflow-x: hidden;
+    margin: 15px;
+    margin-bottom: 4px;
+}
+
+.char-list {
+    display: grid;
     grid-template-columns: repeat(6, 130px);
     row-gap: 15px;
-    padding: 10px;
-    margin-bottom: 4px;
-    height: 100%;
-    background-color: var(--background);
+    height: fit-content;
+    margin-bottom: 10px;
 }
 
 .rotations {
