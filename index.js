@@ -690,10 +690,6 @@ const answers = [
         "type": "true"
     },
     {
-        "text": "Aisa nasceu com um Haki da Observação avançado.",
-        "type": "true"
-    },
-    {
         "text": "Akainu tem o mesmo dublador do Krieg.",
         "type": "true"
     },
@@ -2551,10 +2547,6 @@ const answers = [
     },
     {
         "text": "A recompensa do Kuroobi é de 8,000,000 de berry.",
-        "type": "false"
-    },
-    {
-        "text": "Aisa nasceu com um Haki do Armamento avançado.",
         "type": "false"
     },
     {
