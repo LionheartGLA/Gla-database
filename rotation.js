@@ -42,7 +42,7 @@ const chars = [
     { name: "Roronoa Zoro", type: "gold", dates: ["23-08-2024", "19-07-2024", "31-05-2024"], image: "Img/Medals/Zoro.png", class: ["Cortante", "Bruiser", "Chapéu de Palha"] },
 ]
 
-const lastDate = "30-08-2024";
+const lastDate = "06-09-2024";
 let selectedChar = chars[0];
 
 const rotationOne = getRotationChars(['Baby 5', 'Scratchmen Apoo', 'Urouge']);
