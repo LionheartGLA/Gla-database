@@ -63,6 +63,9 @@ html, body {
     row-gap: 15px;
     height: fit-content;
     margin-bottom: 10px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .rotations {
@@ -92,6 +95,9 @@ html, body {
     width: 66px;
     height: 68px;
     position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .rot-0 {
@@ -207,22 +213,22 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .class-bt {
-    filter: brightness(70%);
+    filter: brightness(50%);
 }
 
 .class-bt:hover {
     cursor: pointer;
-    filter: brightness(110%);
+    filter: brightness(80%);
 }
 
 .class-bt.selected {
-    filter: brightness(150%);
+    filter: brightness(100%);
 }
 
 .assinatura {

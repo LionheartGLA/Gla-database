@@ -6,7 +6,7 @@ const chars = [
     { name: "Bartolomeo", type: "gold", dates: ["30-08-2024", "05-07-2024", "26-04-2024", "24-05-2024"], image: "Img/Medals/Bartolomeo.png", class: ["Especialista", "DPS", "Fruta do Diabo"] },
     { name: "Bastille", type: "gold", dates: ["06-09-2024", "19-07-2024", "17-05-2024"], image: "Img/Medals/Bastille.png", class: ["Cortante", "Tanque", "Marinheiro"] },
     { name: "Bellamy", type: "gold", dates: ["14-06-2024", "17-05-2024"], image: "Img/Medals/Bellamy.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
-    { name: "Jewelry Bonney", type: "gold", dates: ["06-09-2024", "12-07-2024", "31-05-2024"], image: "Img/Medals/Bonney.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Supernova", "Mulher"] },
+    { name: "Jewelry Bonney", type: "gold", dates: ["06-09-2024", "12-07-2024", "31-05-2024"], image: "Img/Medals/Bonney.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Supernova", "Mulher", "Realeza"] },
     { name: "Brook", type: "gold", dates: ["16-08-2024", "14-06-2024", "10-05-2024"], image: "Img/Medals/Brook.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
     { name: "Capone Gang Bege", type: "gold", dates: ["28-06-2024", "07-06-2024", "26-04-2024"], image: "Img/Medals/Capone.png", class: ["Atirador", "DPS", "Supernova", "Fruta do Diabo"] },
     { name: "Carrot", type: "gold", dates: ["16-08-2024", "21-06-2024", "31-05-2024", "26-04-2024"], image: "Img/Medals/Carrot.png", class: ["Cortante", "Especialista", "DPS", "Mulher"] },
@@ -56,10 +56,10 @@ function populateRotation(div, rotation){
     const container = document.querySelector(div);
 
     rotation.forEach((char,index) => {
-        const imgElement = document.createElement('img');
+        const imgElement = document.createElement('div');
         imgElement.classList.add('rotation-img');
         imgElement.classList.add(`rot-${index}`);
-        imgElement.src = char.image;
+        imgElement.style.backgroundImage = `url(${char.image})`;
         container.appendChild(imgElement);
     })
 }
