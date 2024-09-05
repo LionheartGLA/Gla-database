@@ -258,32 +258,21 @@ body {
     justify-content: center;
     z-index: 1;
     user-select: none;
-    flex-direction: column;
-    gap: 10px;
+    gap: 2px;
 }
 
 .rot-bt {
-    background-color: var(--backgroundT);
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: brightness(1.6);
-    border-radius: 100%;
-    flex-direction: column;
+    background-image: url('Img/rotButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
 }
 
 .dima-bt {
-    background-color: var(--backgroundT);
-    height: 40px;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: brightness(1.6);
-    border-radius: 100%;
-    flex-direction: column;
+    background-image: url('Img/dimaButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
 }
 
 .dima-icon {
@@ -292,7 +281,7 @@ body {
 
 .rot-bt:hover, .dima-bt:hover {
     cursor: pointer;
-    filter: brightness(2);
+    filter: brightness(1.5);
 }
 
 .rot-icon {
