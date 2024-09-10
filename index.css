@@ -20,7 +20,7 @@ body {
 .tabs {
     display: flex;
     gap: 10px;
-    margin-top: 1svh;
+    margin-top: 2%;
     z-index: 1;
 }
 
@@ -296,8 +296,8 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    left: -1svw;
-    bottom: 1svh;
+    left: 2%;
+    bottom: 2%;
 }
 
 .chest {
@@ -314,7 +314,7 @@ body {
 }
 
 .chest:first-child {
-    bottom: 8svh;
+    bottom: 50px;
 }
 
 .chest:last-child {
