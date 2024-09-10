@@ -3627,7 +3627,7 @@ const answers = [
     },
 ]
 
-function updateScale(div){
+function updateScale(div) {
     const vpWidth = window.innerWidth;
     const vpHeight = window.innerHeight;
 
@@ -3643,15 +3643,17 @@ updateScale(memoryDiv);
 updateScale(document.querySelector('.rotations'));
 updateScale(document.querySelector('.lion'));
 updateScale(document.querySelector('.assinatura'));
+updateScale(document.querySelector('.tabs'));
 
 window.addEventListener('resize', () => {
     updateScale(memoryDiv);
     updateScale(document.querySelector('.rotations'));
     updateScale(document.querySelector('.lion'));
     updateScale(document.querySelector('.assinatura'));
+    updateScale(document.querySelector('.tabs'));
 });
 
-function renderAnswers(filteredAnswers){
+function renderAnswers(filteredAnswers) {
     answersDiv.innerHTML = '';
     filteredAnswers.forEach(answer => {
         const div = document.createElement('div');
@@ -3667,7 +3669,7 @@ function normalizeString(str) {
 
 function filterAnswers() {
     const input = normalizeString(quizInput.value.toLowerCase());
-    const filteredAnswers = answers.filter(answer => 
+    const filteredAnswers = answers.filter(answer =>
         normalizeString(answer.text.toLowerCase()).includes(input)
     );
     renderAnswers(filteredAnswers);
@@ -3685,14 +3687,14 @@ renderAnswers(answers);
 
 const background = document.querySelector('.bg-img');
 
-function setTab(tabName){
-    if(tabName === 'memory'){
+function setTab(tabName) {
+    if (tabName === 'memory') {
         memoryDiv.style.display = 'flex';
         quizDiv.style.display = 'none';
         memoryBt.classList.add('selected');
         quizBt.classList.remove('selected');
         background.style.backgroundImage = "url('Img/background.png')";
-    } else if (tabName === 'quiz'){
+    } else if (tabName === 'quiz') {
         quizDiv.style.display = 'flex';
         memoryDiv.style.display = 'none';
         quizBt.classList.add('selected');
@@ -3743,17 +3745,17 @@ function handleColorButtonClick(event) {
     setColor(square, color);
 }
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (event.target.classList.contains('color')) {
         handleColorButtonClick(event);
     }
 });
 
-memoryBt.addEventListener('click', function(event) {
+memoryBt.addEventListener('click', function (event) {
     setTab('memory');
 });
 
-quizBt.addEventListener('click', function(event) {
+quizBt.addEventListener('click', function (event) {
     setTab('quiz');
 });
 
@@ -3767,16 +3769,16 @@ document.querySelector('.dima-bt').addEventListener('click', () => {
     window.location.replace("dima.html");
 })
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.code === 'Space') {
         resetAll()
     }
 });
 
-function populateRotation(div, rotation){
+function populateRotation(div, rotation) {
     const container = document.querySelector(div);
 
-    rotation.forEach((char,index) => {
+    rotation.forEach((char, index) => {
         const imgElement = document.createElement('div');
         imgElement.classList.add('rotation-img');
         imgElement.classList.add(`rot-${index}`);
