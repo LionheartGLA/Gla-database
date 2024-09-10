@@ -287,3 +287,58 @@ body {
 .rot-icon {
     color: white;
 }
+
+.rotations {
+    position: absolute;
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    left: -1svw;
+    bottom: 1svh;
+}
+
+.chest {
+    display: flex;
+    background-image: url('Img/chest.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70px;
+    width: 140px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chest:first-child {
+    bottom: 8svh;
+}
+
+.chest:last-child {
+    margin-left: -60px;
+}
+
+.rotation-img {
+    width: 46px;
+    height: 48px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rot-0 {
+    left: 14px;
+}
+
+.rot-1 {
+    bottom: 22px;
+    right: 3px;
+}
+
+.rot-2 {
+    right: 24px;
+}

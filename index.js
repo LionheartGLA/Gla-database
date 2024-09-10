@@ -3627,8 +3627,7 @@ const answers = [
     },
 ]
 
-function updateScale(){
-    const container = document.querySelector('.main-memory');
+function updateScale(div){
     const vpWidth = window.innerWidth;
     const vpHeight = window.innerHeight;
 
@@ -3637,11 +3636,20 @@ function updateScale(){
 
     const scale = Math.min(scaleX, scaleY);
 
-    container.style.transform = `scale(${scale})`
+    div.style.transform = `scale(${scale})`
 }
 
-updateScale();
-window.addEventListener('resize', updateScale);
+updateScale(memoryDiv);
+updateScale(document.querySelector('.rotations'));
+updateScale(document.querySelector('.lion'));
+updateScale(document.querySelector('.assinatura'));
+
+window.addEventListener('resize', () => {
+    updateScale(memoryDiv);
+    updateScale(document.querySelector('.rotations'));
+    updateScale(document.querySelector('.lion'));
+    updateScale(document.querySelector('.assinatura'));
+});
 
 function renderAnswers(filteredAnswers){
     answersDiv.innerHTML = '';
@@ -3764,3 +3772,18 @@ document.addEventListener('keydown', function(event) {
         resetAll()
     }
 });
+
+function populateRotation(div, rotation){
+    const container = document.querySelector(div);
+
+    rotation.forEach((char,index) => {
+        const imgElement = document.createElement('div');
+        imgElement.classList.add('rotation-img');
+        imgElement.classList.add(`rot-${index}`);
+        imgElement.style.backgroundImage = `url(${char.image})`;
+        container.appendChild(imgElement);
+    })
+}
+
+populateRotation('.rotationOne', rotationOne);
+populateRotation('.rotationTwo', rotationTwo);
