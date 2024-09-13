@@ -112,9 +112,9 @@ function handleFilterButtonClick(filter, button) {
     toggleFilter(filter);
     filterChars();
     if (activeFilters.has(filter)) {
-        button.style.borderBottom = "1px solid white";
+        button.classList.add('selected')
     } else {
-        button.style.borderBottom = "none";
+        button.classList.remove('selected')
     }
 }
 

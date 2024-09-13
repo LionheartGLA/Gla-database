@@ -3631,26 +3631,22 @@ function updateScale(div) {
     const vpWidth = window.innerWidth;
     const vpHeight = window.innerHeight;
 
-    const scaleX = vpWidth / 668;
-    const scaleY = vpHeight / 668;
+    let scaleY = vpHeight / 668;
+    let scaleX = vpWidth / 668;
 
-    const scale = Math.min(scaleX, scaleY);
+    let scale = Math.min(scaleX, scaleY);
 
-    div.style.transform = `scale(${scale})`
+    if (window.innerWidth <= 768) {
+        div.style.transform = `scale(1)`;
+    } else {
+        div.style.transform = `scale(${scale})`;
+    }
 }
 
 updateScale(memoryDiv);
-updateScale(document.querySelector('.rotations'));
-updateScale(document.querySelector('.lion'));
-updateScale(document.querySelector('.assinatura'));
-updateScale(document.querySelector('.tabs'));
 
 window.addEventListener('resize', () => {
     updateScale(memoryDiv);
-    updateScale(document.querySelector('.rotations'));
-    updateScale(document.querySelector('.lion'));
-    updateScale(document.querySelector('.assinatura'));
-    updateScale(document.querySelector('.tabs'));
 });
 
 function renderAnswers(filteredAnswers) {
@@ -3743,6 +3739,8 @@ function handleColorButtonClick(event) {
     const index = parseInt(colorClass.match(/\d+$/)[0], 10);
     const square = document.querySelector(`.sq${index}`);
     setColor(square, color);
+    square.querySelector('.color-bt').style.display = 'none';
+    square.querySelector('.color-bt').style.pointerEvents = 'none';
 }
 
 document.addEventListener('click', function (event) {
@@ -3758,6 +3756,15 @@ memoryBt.addEventListener('click', function (event) {
 quizBt.addEventListener('click', function (event) {
     setTab('quiz');
 });
+
+document.querySelectorAll('.square').forEach(square => {
+    square.addEventListener('click', () => {
+        if (window.innerWidth <= 600) {
+            square.querySelector('.color-bt').style.display = "flex";
+            square.querySelector('.color-bt').style.pointerEvents = "all";
+        }
+    })
+})
 
 document.querySelector('.bt-div').addEventListener('click', resetAll);
 
