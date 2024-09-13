@@ -3739,8 +3739,6 @@ function handleColorButtonClick(event) {
     const index = parseInt(colorClass.match(/\d+$/)[0], 10);
     const square = document.querySelector(`.sq${index}`);
     setColor(square, color);
-    square.querySelector('.color-bt').style.display = 'none';
-    square.querySelector('.color-bt').style.pointerEvents = 'none';
 }
 
 document.addEventListener('click', function (event) {
@@ -3761,7 +3759,6 @@ document.querySelectorAll('.square').forEach(square => {
     square.addEventListener('click', () => {
         if (window.innerWidth <= 600) {
             square.querySelector('.color-bt').style.display = "flex";
-            square.querySelector('.color-bt').style.pointerEvents = "all";
         }
     })
 })
