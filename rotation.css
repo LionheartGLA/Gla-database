@@ -382,7 +382,7 @@ html, body {
     }
 
     .char:hover {
-        scale: 1;
+        transform: scale(1);
     }
 
     .search {
@@ -474,7 +474,7 @@ html, body {
     }
 
     .char:hover {
-        scale: 1;
+        transform: scale(1);
     }
 
     .main {
