@@ -357,6 +357,7 @@ html, body {
     align-items: center;
     justify-content: center;
     display: none;
+    user-select: none;
 }
 
 @media (max-width: 600px) {
@@ -378,6 +379,10 @@ html, body {
         width: 100vw;
         padding: 10px;
         margin: 0;
+    }
+
+    .char:hover {
+        scale: 1;
     }
 
     .search {
@@ -466,6 +471,10 @@ html, body {
         margin: 10px;
         margin-bottom: 30px;
         padding: 4px;
+    }
+
+    .char:hover {
+        scale: 1;
     }
 
     .main {
@@ -590,7 +599,7 @@ html, body {
     .lastRot>i {
         align-self: flex-start;
     }
-    
+
     .back {
         display: flex;
     }
