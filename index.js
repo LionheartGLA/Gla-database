@@ -3645,8 +3645,19 @@ function updateScale(div) {
 
 updateScale(memoryDiv);
 
+if(window.innerWidth <= 768){
+    var canHover = false;
+} else if (window.innerWidth > 768){
+    var canHover = true;
+}
+
 window.addEventListener('resize', () => {
     updateScale(memoryDiv);
+    if(window.innerWidth > 768){
+        canHover = true;
+    }else {
+        canHover = false;
+    }
 });
 
 function renderAnswers(filteredAnswers) {
@@ -3739,6 +3750,11 @@ function handleColorButtonClick(event) {
     const index = parseInt(colorClass.match(/\d+$/)[0], 10);
     const square = document.querySelector(`.sq${index}`);
     setColor(square, color);
+    if(window.innerWidth < 769){
+        document.querySelectorAll('.color-bt').forEach(bt => {
+            bt.style.display = 'none';
+        })
+    }
 }
 
 document.addEventListener('click', function (event) {
@@ -3757,10 +3773,23 @@ quizBt.addEventListener('click', function (event) {
 
 document.querySelectorAll('.square').forEach(square => {
     square.addEventListener('click', () => {
-        if (window.innerWidth <= 600) {
+        if (window.innerWidth <= 769) {
             square.querySelector('.color-bt').style.display = "flex";
         }
     })
+})
+
+document.querySelectorAll('.square').forEach(square => {
+    square.addEventListener('mouseover', () => {
+        if(canHover){
+            square.querySelector('.color-bt').style.display = 'flex';
+        }
+    });
+    square.addEventListener('mouseleave', () => {
+        if(canHover){
+            square.querySelector('.color-bt').style.display = 'none';
+        }
+    });
 })
 
 document.querySelector('.bt-div').addEventListener('click', resetAll);
