@@ -55,18 +55,37 @@ const kumaB = document.getElementById("kuma");
 const mihawkB = document.getElementById("mihawk");
 const shanksB = document.getElementById("shanks");
 
+const filterButtons = {
+    "Supernova": barbanegraB,
+    "Atirador": doflamingoB,
+    "Mulher": hancockB,
+    "Suporte": ivankovB,
+    "Tanque": jinbeB,
+    "Marinheiro": kizaruB,
+    "Realeza": kumaB,
+    "Cortante": mihawkB,
+    "Chapéu de Palha": shanksB,
+    "Enel": enelB
+};
+
+let hoveredFilter = null;
+
 function addCharToList() {
     var charListDiv = document.querySelector(".chars");
 
     chars.forEach(function (character) {
         var charDiv = document.createElement("div");
         charDiv.classList.add("char");
-        charDiv.style.backgroundImage = `url('${character.image}')`;
+
+        var charImg = document.createElement("div");
+        charImg.classList.add('char-img')
+        charImg.style.backgroundImage = `url('${character.image}')`;
 
         var textElement = document.createElement("p");
         textElement.innerText = character.name
         textElement.classList.add("title");
 
+        charDiv.appendChild(charImg)
         charDiv.appendChild(textElement);
 
         charListDiv.appendChild(charDiv);
@@ -87,6 +106,7 @@ function filterChars() {
     var allChars = document.querySelectorAll('.char');
     allChars.forEach(function (char) {
         char.style.display = 'none';
+        char.classList.remove('hovered');
     });
 
     var filteredChars = document.querySelectorAll('.char');
@@ -105,6 +125,11 @@ function filterChars() {
         if (showChar) {
             char.style.display = 'flex';
         }
+        
+        // Add border if the filter matches the hovered filter
+        if (hoveredFilter && charData.class.includes(hoveredFilter)) {
+            char.classList.add('hovered');
+        }
     });
 }
 
@@ -118,46 +143,30 @@ function handleFilterButtonClick(filter, button) {
     }
 }
 
-barbanegraB.addEventListener("click", function () {
-    handleFilterButtonClick("Supernova", barbanegraB);
-});
+function handleFilterButtonHover(filter) {
+    hoveredFilter = filter;
+    filterChars();
+}
 
-doflamingoB.addEventListener("click", function () {
-    handleFilterButtonClick("Atirador", doflamingoB);
-});
+function handleFilterButtonLeave() {
+    hoveredFilter = null;
+    filterChars();
+}
 
-hancockB.addEventListener("click", function () {
-    handleFilterButtonClick("Mulher", hancockB);
-});
+Object.keys(filterButtons).forEach(filter => {
+    const button = filterButtons[filter];
+    button.addEventListener("click", function () {
+        handleFilterButtonClick(filter, button);
+    });
 
-ivankovB.addEventListener("click", function () {
-    handleFilterButtonClick("Suporte", ivankovB);
-});
+    button.addEventListener("mouseover", function () {
+        handleFilterButtonHover(filter);
+    });
 
-jinbeB.addEventListener("click", function () {
-    handleFilterButtonClick("Tanque", jinbeB);
+    button.addEventListener("mouseout", function () {
+        handleFilterButtonLeave();
+    });
 });
-
-kizaruB.addEventListener("click", function () {
-    handleFilterButtonClick("Marinheiro", kizaruB);
-});
-
-kumaB.addEventListener("click", function () {
-    handleFilterButtonClick("Realeza", kumaB);
-});
-
-mihawkB.addEventListener("click", function () {
-    handleFilterButtonClick("Cortante", mihawkB);
-});
-
-shanksB.addEventListener("click", function () {
-    handleFilterButtonClick("Chapéu de Palha", shanksB);
-});
-
-enelB.addEventListener("click", function () {
-    handleFilterButtonClick("Enel", enelB);
-});
-
 
 window.addEventListener("load", addCharToList);
 

@@ -78,11 +78,32 @@ html, body {
     font-size: 0.8rem;
     height: 140px;
     width: 110px;
+    justify-content: flex-end;
+    user-select: none;
+    position: relative;
+    z-index: 5;
+}
+
+.char-img {
+    width: 100%;
+    aspect-ratio: 1/1;
     background-repeat: no-repeat;
     background-position:center;
     background-size: contain;
-    justify-content: flex-end;
-    user-select: none;
+}
+
+.char.hovered::before {
+    content: "";
+    background-color: var(--border);
+    width: 80%;
+    aspect-ratio: 1/1.5;
+    filter: blur(0.3rem);
+    border-radius: 100px;
+    position: absolute;
+    z-index: -1;
+    translate: 0 10%;
+    opacity: 0.5;
+    display: flex;
 }
 
 .dima {
@@ -177,6 +198,10 @@ html, body {
         transform: scale(1);
         cursor: pointer;
     }
+
+    .char.hovered::before {
+        display: none;
+    }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {
@@ -192,6 +217,10 @@ html, body {
         flex-wrap: nowrap;
         width: calc(100% - 30px);
         padding-left: 30px;
+    }
+
+    .char.hovered::before {
+        display: none;
     }
 }
 
