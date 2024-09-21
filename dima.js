@@ -44,7 +44,7 @@ const chars = [
     { name: "Shura", image: "Img/Medals/Shura.png", class: ["Enel"] },
 ]
 
-const filterButtons = {
+const dimaButtons = {
     "Supernova": document.getElementById("barbanegra"),
     "Atirador": document.getElementById("doflamingo"),
     "Mulher": document.getElementById("hancock"),
@@ -57,8 +57,31 @@ const filterButtons = {
     "Enel": document.getElementById("enel"),
 };
 
+const filterButtons = {
+    "Tanque": document.getElementById("tanque"),
+    "Bruiser": document.getElementById("bruiser"),
+    "DPS": document.getElementById("dps"),
+    "Suporte": document.getElementById("suporte"),
+    "Lutador": document.getElementById("lutador"),
+    "Atirador": document.getElementById("atirador"),
+    "Cortante": document.getElementById("cortante"),
+    "Especialista": document.getElementById("especialista"),
+    "Marinheiro": document.getElementById("marinheiro"),
+    "Chapéu de Palha": document.getElementById("mugiwara"),
+    "Mulher": document.getElementById("mulher"),
+    "Realeza": document.getElementById("realeza"),
+    "Supernova": document.getElementById("supernova"),
+};
+
 let activeFilters = new Set();
 let hoveredFilter = null;
+
+const searchBar = document.querySelector('.search-bar-filter');
+
+document.querySelector('.search-bar-filter').addEventListener('input', () => {
+    filterChars();
+});
+
 
 function addCharToList() {
     const charListDiv = document.querySelector(".chars");
@@ -86,16 +109,16 @@ function addCharToList() {
 function handleCharClick(char, charDiv) {
     if (charDiv.classList.contains('selected')) {
         char.class.forEach(c => {
-            if (filterButtons[c]) {
-                const titleElement = filterButtons[c].querySelector('.count');
+            if (dimaButtons[c]) {
+                const titleElement = dimaButtons[c].querySelector('.count');
                 titleElement.innerText = parseFloat(titleElement.innerText) - 1;
             }
             charDiv.classList.remove('selected');
         });
     } else {
         char.class.forEach(c => {
-            if (filterButtons[c]) {
-                const titleElement = filterButtons[c].querySelector('.count');
+            if (dimaButtons[c]) {
+                const titleElement = dimaButtons[c].querySelector('.count');
                 titleElement.innerText = parseFloat(titleElement.innerText) + 1;
             }
             charDiv.classList.add('selected');
@@ -108,22 +131,38 @@ function toggleFilter(filter) {
 }
 
 function filterChars() {
+    console.log('aaa')
     const allChars = document.querySelectorAll('.char');
+    const searchTerm = searchBar.value.toLowerCase(); // Get the search term and convert to lowercase
+
     allChars.forEach(char => {
-        const charName = char.querySelector('p').innerText;
-        const charData = chars.find(character => character.name === charName);
-        const showChar = Array.from(activeFilters).every(filter => charData.class.includes(filter));
+        const charName = char.querySelector('p').innerText.toLowerCase(); // Convert character name to lowercase
+        const charData = chars.find(character => character.name.toLowerCase() === charName);
+
+        // Check if the character matches the active filters and the search term
+        const showChar = Array.from(activeFilters).every(filter => charData.class.includes(filter)) && 
+                         charName.includes(searchTerm);
 
         char.style.display = showChar ? 'flex' : 'none';
         char.classList.toggle('hovered', hoveredFilter && charData.class.includes(hoveredFilter));
     });
 }
 
-function handleFilterButtonClick(filter, button) {
-        toggleFilter(filter);
-        filterChars();
-        button.classList.toggle('selected', activeFilters.has(filter));
+function handleDimaButtonClick(filter, button) {
+    toggleFilter(filter);
+    filterChars();
+    button.classList.toggle('selected', activeFilters.has(filter));
 }
+
+function handleFilterButtonClick(filter, button) {
+    toggleFilter(filter);
+    filterChars();
+    button.classList.toggle('selected', activeFilters.has(filter));
+}
+
+Object.entries(dimaButtons).forEach(([filter, button]) => {
+    button.addEventListener("click", () => handleDimaButtonClick(filter, button));
+});
 
 Object.entries(filterButtons).forEach(([filter, button]) => {
     button.addEventListener("click", () => handleFilterButtonClick(filter, button));
