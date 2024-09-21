@@ -44,132 +44,90 @@ const chars = [
     { name: "Shura", image: "Img/Medals/Shura.png", class: ["Enel"] },
 ]
 
-const barbanegraB = document.getElementById("barbanegra");
-const enelB = document.getElementById("enel");
-const doflamingoB = document.getElementById("doflamingo");
-const hancockB = document.getElementById("hancock");
-const ivankovB = document.getElementById("ivankov");
-const jinbeB = document.getElementById("jinbe");
-const kizaruB = document.getElementById("kizaru");
-const kumaB = document.getElementById("kuma");
-const mihawkB = document.getElementById("mihawk");
-const shanksB = document.getElementById("shanks");
-
 const filterButtons = {
-    "Supernova": barbanegraB,
-    "Atirador": doflamingoB,
-    "Mulher": hancockB,
-    "Suporte": ivankovB,
-    "Tanque": jinbeB,
-    "Marinheiro": kizaruB,
-    "Realeza": kumaB,
-    "Cortante": mihawkB,
-    "Chapéu de Palha": shanksB,
-    "Enel": enelB
+    "Supernova": document.getElementById("barbanegra"),
+    "Atirador": document.getElementById("doflamingo"),
+    "Mulher": document.getElementById("hancock"),
+    "Suporte": document.getElementById("ivankov"),
+    "Tanque": document.getElementById("jinbe"),
+    "Marinheiro": document.getElementById("kizaru"),
+    "Realeza": document.getElementById("kuma"),
+    "Cortante": document.getElementById("mihawk"),
+    "Chapéu de Palha": document.getElementById("shanks"),
+    "Enel": document.getElementById("enel"),
 };
 
+let activeFilters = new Set();
 let hoveredFilter = null;
 
 function addCharToList() {
-    var charListDiv = document.querySelector(".chars");
-
-    chars.forEach(function (character) {
-        var charDiv = document.createElement("div");
+    const charListDiv = document.querySelector(".chars");
+    chars.forEach(character => {
+        const charDiv = document.createElement("div");
         charDiv.classList.add("char");
 
-        var charImg = document.createElement("div");
-        charImg.classList.add('char-img')
+        const charImg = document.createElement("div");
+        charImg.classList.add('char-img');
         charImg.style.backgroundImage = `url('${character.image}')`;
 
-        var textElement = document.createElement("p");
-        textElement.innerText = character.name
+        const textElement = document.createElement("p");
+        textElement.innerText = character.name;
         textElement.classList.add("title");
 
-        charDiv.appendChild(charImg)
-        charDiv.appendChild(textElement);
-
+        charDiv.append(charImg, textElement);
         charListDiv.appendChild(charDiv);
-    })
+
+        charDiv.addEventListener('click', () => {
+            handleCharClick(chars.find(char => char.name === character.name), charDiv);
+        })
+    });
 }
 
-const activeFilters = new Set();
-
-function toggleFilter(filter) {
-    if (activeFilters.has(filter)) {
-        activeFilters.delete(filter);
+function handleCharClick(char, charDiv) {
+    if (charDiv.classList.contains('selected')) {
+        char.class.forEach(c => {
+            if (filterButtons[c]) {
+                const titleElement = filterButtons[c].querySelector('.count');
+                titleElement.innerText = parseFloat(titleElement.innerText) - 1;
+            }
+            charDiv.classList.remove('selected');
+        });
     } else {
-        activeFilters.add(filter);
+        char.class.forEach(c => {
+            if (filterButtons[c]) {
+                const titleElement = filterButtons[c].querySelector('.count');
+                titleElement.innerText = parseFloat(titleElement.innerText) + 1;
+            }
+            charDiv.classList.add('selected');
+        });
     }
 }
 
+function toggleFilter(filter) {
+    activeFilters.has(filter) ? activeFilters.delete(filter) : activeFilters.add(filter);
+}
+
 function filterChars() {
-    var allChars = document.querySelectorAll('.char');
-    allChars.forEach(function (char) {
-        char.style.display = 'none';
-        char.classList.remove('hovered');
-    });
+    const allChars = document.querySelectorAll('.char');
+    allChars.forEach(char => {
+        const charName = char.querySelector('p').innerText;
+        const charData = chars.find(character => character.name === charName);
+        const showChar = Array.from(activeFilters).every(filter => charData.class.includes(filter));
 
-    var filteredChars = document.querySelectorAll('.char');
-    filteredChars.forEach(function (char) {
-        var charData = chars.find(function (character) {
-            return character.name === char.querySelector('p').innerHTML;
-        });
-
-        var showChar = true;
-        activeFilters.forEach(function (filter) {
-            if (!charData.class.includes(filter)) {
-                showChar = false;
-            }
-        });
-
-        if (showChar) {
-            char.style.display = 'flex';
-        }
-        
-        // Add border if the filter matches the hovered filter
-        if (hoveredFilter && charData.class.includes(hoveredFilter)) {
-            char.classList.add('hovered');
-        }
+        char.style.display = showChar ? 'flex' : 'none';
+        char.classList.toggle('hovered', hoveredFilter && charData.class.includes(hoveredFilter));
     });
 }
 
 function handleFilterButtonClick(filter, button) {
-    toggleFilter(filter);
-    filterChars();
-    if (activeFilters.has(filter)) {
-        button.classList.add('selected')
-    } else {
-        button.classList.remove('selected')
-    }
+        toggleFilter(filter);
+        filterChars();
+        button.classList.toggle('selected', activeFilters.has(filter));
 }
 
-function handleFilterButtonHover(filter) {
-    hoveredFilter = filter;
-    filterChars();
-}
-
-function handleFilterButtonLeave() {
-    hoveredFilter = null;
-    filterChars();
-}
-
-Object.keys(filterButtons).forEach(filter => {
-    const button = filterButtons[filter];
-    button.addEventListener("click", function () {
-        handleFilterButtonClick(filter, button);
-    });
-
-    button.addEventListener("mouseover", function () {
-        handleFilterButtonHover(filter);
-    });
-
-    button.addEventListener("mouseout", function () {
-        handleFilterButtonLeave();
-    });
+Object.entries(filterButtons).forEach(([filter, button]) => {
+    button.addEventListener("click", () => handleFilterButtonClick(filter, button));
 });
 
 window.addEventListener("load", addCharToList);
-
-document.querySelector('.rot-bt').addEventListener('click', () => {
-    window.location.replace('index.html')
-})
+document.querySelector('.rot-bt').addEventListener('click', () => window.location.replace('index.html'));

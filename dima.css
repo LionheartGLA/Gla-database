@@ -20,6 +20,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .main {
@@ -92,7 +93,7 @@ html, body {
     background-size: contain;
 }
 
-.char.hovered::before {
+.char.selected::before {
     content: "";
     background-color: var(--border);
     width: 80%;
@@ -189,6 +190,34 @@ html, body {
     max-width: 100%;
 }
 
+.char:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.count {
+    font-family: 'roboto';
+    color: white;
+    position: absolute;
+    font-weight: 300;
+    z-index: 1;
+    bottom: 5px;
+}
+
+.count::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    translate: -25% 0%;
+    background-color: black;
+    z-index: -1;
+    filter: blur(0.2rem);
+    border-radius: 100px;
+}
+
 @media (max-width: 600px) {
     .dima>p {
         display: none;
@@ -201,6 +230,18 @@ html, body {
 
     .char.hovered::before {
         display: none;
+    }
+
+    .rot-bt {
+        display: none;
+    }
+
+    .back-tab {
+        display: flex;
+    }
+
+    .char {
+        pointer-events: none;
     }
 }
 
