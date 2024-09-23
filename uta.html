@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show da Uta</title>
+    <link rel="stylesheet" href="uta.css" />
+</head>
+
+<body>
+    <div class="background">
+        <div class="panel-left">
+            <p class="music-title">Músicas</p>
+            <div class="music-list">
+                <p class="music-difficulty">Easy:</p>
+                <div class="easy-list">
+
+                </div>
+                <p class="music-difficulty">Medium:</p>
+                <div class="medium-list">
+
+                </div>
+                <p class="music-difficulty">Hard:</p>
+                <div class="hard-list">
+
+                </div>
+                <p class="music-difficulty">Expert</p>
+                <div class="expert-list">
+
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="score-div">
+                <p id="score"></p>
+            </div>
+            <div class="uta-dancing">
+                <img src="Img/UtaDancing.gif"></img>
+            </div>
+            <div class="uta-minigame">
+                <div class="music-green note">
+                    <img class="note-img" src="Img/GreenNote.png" alt=""></img>
+                    <audio src="Audio/Verde.mp3"></audio>
+                    <p>W</p>
+                </div>
+                <div class="music-yellow note">
+                    <img class="note-img" src="Img/YellowNote.png" alt=""></img>
+                    <audio src="Audio/Amarelo.mp3"></audio>
+                    <p>A</p>
+                </div>
+                <div class="music-red note">
+                    <img class="note-img" src="Img/RedNote.png" alt=""></img>
+                    <audio src="Audio/Vermelho.mp3"></audio>
+                    <p>S</p>
+                </div>
+                <div class="music-blue note">
+                    <img class="note-img" src="Img/BlueNote.png" alt=""></img>
+                    <audio src="Audio/Azul.mp3"></audio>
+                    <p>D</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel-right">
+            <div class="vertical-line line-1"></div>
+            <div class="vertical-line line-2"></div>
+            <div class="vertical-line line-3"></div>
+            <div class="vertical-line line-4"></div>
+            <div id="note-container">
+
+            </div>
+            <div class="hit-zone">
+                <div class="fake-music-green fake-note">
+                    <img class="note-img" src="Img/GreenNote.png" alt=""></img>
+                    <p>W</p>
+                </div>
+                <div class="fake-music-yellow fake-note">
+                    <img class="note-img" src="Img/YellowNote.png" alt=""></img>
+                    <p>A</p>
+                </div>
+                <div class="fake-music-red fake-note">
+                    <img class="note-img" src="Img/RedNote.png" alt=""></img>
+                    <p>S</p>
+                </div>
+                <div class="fake-music-blue fake-note">
+                    <img class="note-img" src="Img/BlueNote.png" alt=""></img>
+                    <p>D</p>
+                </div>
+            </div>
+            <div id="countdown">
+            </div>
+            <div class="game-end">
+                <p>Parabéns!</p>
+                <p class="score-end-text">Seu score na musica Teste foi:</p>
+                <p id="score-end"></p>
+            </div>
+        </div>
+    </div>
+    <script src='uta.js'></script>
+</body>
+
+</html>

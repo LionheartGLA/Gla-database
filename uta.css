@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --background-color: #241a15;
+    --grid-color: #2e2e2e;
+    --backgroundT: #281c14;
+    --backgroundTh: #20140c;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    overflow: hidden;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-image: url('Img/backgroundUta.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.uta-minigame {
+    width: 200px;
+    height: 200px;
+    z-index: 10;
+    display: grid;
+    grid-template-areas:
+        ". green ."
+        "yellow . blue"
+        ". red .";
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    max-height: 200px;
+    flex: 1;
+    translate: 0% -30%;
+}
+
+.panel-left {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 25%;
+    height: 100%;
+    font-family: 'roboto';
+    color: white;
+}
+
+.panel-right {
+    background: rgba(0, 0, 0, 0.3);
+    width: 25%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.vertical-line {
+    position: absolute;
+    width: 2px; /* Adjust the thickness of the line */
+    background-color: white; /* Change the color of the line */
+    top: 0; /* Start from the top */
+    height: 90%; /* Extend to the bottom */
+    opacity: 0.1;
+}
+
+.line-1 { left: 12.5%; }
+.line-2 { left: 37.5%; }
+.line-3 { left: 62.5%; }
+.line-4 { left: 87.5%; }
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'roboto';
+}
+
+.uta-dancing {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.uta-dancing>img {
+    width: 224px;
+    height: 179px;
+    margin-right: 66px;
+    translate: 0% 0%;
+}
+
+.note-container {
+    width: 100%;
+    display: flex;
+}
+
+.score-div {
+    align-self: flex-start;
+    position:fixed;
+    top: 0;
+    color: white;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+.note, .fake-note {
+    opacity: 0.9;
+}
+
+.music-green>p, .fake-music-green>p, .fake-music-yellow>p, .fake-music-red>p, .fake-music-blue>p {
+    font-family: 'roboto';
+    z-index: 10;
+    position: absolute;
+    translate: 0% 200%;
+    color: #57cf71;
+}
+
+.fake-music-yellow>p {
+    color: #bfc231;
+}
+
+.fake-music-red>p {
+    color: #f67faf;
+}
+
+.fake-music-blue>p {
+    color: #8aa4ce;
+}
+
+.music-yellow>p {
+    font-family: 'roboto';
+    z-index: 10;
+    position: absolute;
+    translate: 350% 0%;
+    color: #bfc231;
+}
+
+.music-blue>p {
+    font-family: 'roboto';
+    z-index: 10;
+    position: absolute;
+    translate: -350% 0%;
+    color: #8aa4ce;
+}
+
+.music-red>p {
+    font-family: 'roboto';
+    z-index: 10;
+    position: absolute;
+    translate: 0% -200%;
+    color: #f67faf;
+}
+
+.music-green>img, .fake-music-green>img {
+    z-index: 10;
+    filter: brightness(0) saturate(100%) invert(95%) sepia(13%) saturate(1219%) hue-rotate(50deg) brightness(107%) contrast(96%) drop-shadow(2px 1px 1px #5c9256);
+}
+
+.music-yellow>img, .fake-music-yellow>img {
+    z-index: 10;
+    filter: brightness(0) saturate(100%) invert(98%) sepia(25%) saturate(6566%) hue-rotate(297deg) brightness(121%) contrast(119%) drop-shadow(2px 1px 1px #cead6e);
+}
+
+.music-blue>img, .fake-music-blue>img {
+    z-index: 10;
+    filter: brightness(0) saturate(100%) invert(94%) sepia(33%) saturate(4501%) hue-rotate(172deg) brightness(101%) contrast(99%) drop-shadow(2px 1px 1px #88a2cd);
+}
+
+.music-red>img, .fake-music-red>img {
+    z-index: 10;
+    filter: brightness(0) saturate(100%) invert(69%) sepia(14%) saturate(1416%) hue-rotate(306deg) brightness(121%) contrast(99%) drop-shadow(2px 1px 1px #d08592);
+}
+
+.music-green, .fake-music-green {
+    width: 42px;
+    height: 42px;
+    background-color: #7edf8d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: green;
+}
+
+.music-green::before, .fake-music-green::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: #88f9a1;
+    border-radius: 5px;
+}
+
+.music-green::after, .fake-music-green::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    z-index: -1;
+    border: 3px solid #7edf8d;
+    border-radius: 12%;
+}
+
+.music-yellow, .fake-music-yellow {
+    width: 42px;
+    height: 42px;
+    background-color: #f1e16d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: yellow;
+}
+
+.music-yellow::before, .fake-music-yellow::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: #f8f988;
+    border-radius: 5px;
+}
+
+.music-yellow::after, .fake-music-yellow::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    z-index: -1;
+    border: 3px solid #f1e16d;
+    border-radius: 12%;
+}
+
+
+.music-blue, .fake-music-blue {
+    width: 42px;
+    height: 42px;
+    background-color: #92faff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: blue;
+}
+
+.music-blue::before, .fake-music-blue::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: #88cdf9;
+    border-radius: 5px;
+}
+
+.music-blue::after, .fake-music-blue::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    z-index: -1;
+    border: 3px solid #92faff;
+    border-radius: 12%;
+}
+
+.music-red, .fake-music-red {
+    width: 42px;
+    height: 42px;
+    background-color: #f67faf;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: red;
+}
+
+.music-red::before, .fake-music-red::before {
+    content: "";
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: #ff9db1;
+    border-radius: 5px;
+}
+
+.music-red::after, .fake-music-red::after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    z-index: -1;
+    border: 3px solid #f67faf;
+    border-radius: 12%;
+}
+
+.circle {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: blue;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    border: 1px solid white;
+}
+
+.hit-zone {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Height of your hit zone */
+    display: flex;
+    justify-content: space-around;
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    overflow-y: auto;
+    max-height: 80%;
+}
+
+.music-title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.music-difficulty {
+    font-size: 1.2rem;
+}
+
+.music-list>div {
+    margin-left: 20px;
+}
+
+.song-item:hover {
+    cursor: pointer;
+    color: #5d9df0;
+}
+
+#countdown {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+    font-family: 'roboto';
+}
+
+.game-end {
+    width: 80%;
+    font-size: 3rem;
+    text-align: center;
+    display: none;
+    color: white;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    justify-content: center;
+    translate: 14% 0%;
+    font-family: 'roboto';
+}
+
+.score-end-text {
+    font-size: 1rem;
+    font-family: 'roboto';
+}
+
+
+@keyframes drop {
+    to {
+        top: 100%; /* This ensures the circle drops to the bottom of the panel */
+    }
+}

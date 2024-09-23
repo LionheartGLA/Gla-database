@@ -3645,17 +3645,17 @@ function updateScale(div) {
 
 updateScale(memoryDiv);
 
-if(window.innerWidth <= 768){
+if (window.innerWidth <= 768) {
     var canHover = false;
-} else if (window.innerWidth > 768){
+} else if (window.innerWidth > 768) {
     var canHover = true;
 }
 
 window.addEventListener('resize', () => {
     updateScale(memoryDiv);
-    if(window.innerWidth > 768){
+    if (window.innerWidth > 768) {
         canHover = true;
-    }else {
+    } else {
         canHover = false;
     }
 });
@@ -3750,7 +3750,7 @@ function handleColorButtonClick(event) {
     const index = parseInt(colorClass.match(/\d+$/)[0], 10);
     const square = document.querySelector(`.sq${index}`);
     setColor(square, color);
-    if(window.innerWidth < 769){
+    if (window.innerWidth < 769) {
         document.querySelectorAll('.color-bt').forEach(bt => {
             bt.style.display = 'none';
         })
@@ -3781,12 +3781,12 @@ document.querySelectorAll('.square').forEach(square => {
 
 document.querySelectorAll('.square').forEach(square => {
     square.addEventListener('mouseover', () => {
-        if(canHover){
+        if (canHover) {
             square.querySelector('.color-bt').style.display = 'flex';
         }
     });
     square.addEventListener('mouseleave', () => {
-        if(canHover){
+        if (canHover) {
             square.querySelector('.color-bt').style.display = 'none';
         }
     });

@@ -278,7 +278,8 @@ body {
     filter: brightness(0.7);
 }
 
-.rot-bt:hover, .dima-bt:hover {
+.rot-bt:hover,
+.dima-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }
@@ -347,9 +348,11 @@ body {
         margin: 0;
         padding: 0;
     }
+
     .bg-img {
         scale: 1;
     }
+
     .bg-img::after {
         content: '';
         position: absolute;
@@ -374,7 +377,7 @@ body {
     }
 
     .bt-div {
-        left:50%;
+        left: 50%;
         top: -6vw;
         translate: -50% -50%;
     }
@@ -396,6 +399,7 @@ body {
         justify-content: center;
         margin-top: 3px;
     }
+
     .tabs>img {
         width: 48%;
     }
@@ -405,7 +409,7 @@ body {
         grid-template-columns: repeat(4, 23.5vw);
         grid-template-rows: repeat(3, 23.5vw);
     }
-    
+
     .square {
         height: 23.5vw;
         width: 23.5vw;
@@ -414,15 +418,15 @@ body {
     .rotations {
         translate: -10%;
     }
-    
+
     .chest:first-child {
         translate: 0% 20%;
     }
-    
+
     .chest:last-child {
         translate: -10% 10%;
     }
-   
+
     .assinatura {
         translate: 0% 30%;
         right: 0;
@@ -449,7 +453,8 @@ body {
         width: calc(100% - 5vw);
     }
 
-    .true, .false {
+    .true,
+    .false {
         font-size: 0.6em;
     }
 
@@ -468,9 +473,11 @@ body {
         margin: 0;
         padding: 0;
     }
+
     .bg-img {
         scale: 1;
     }
+
     .bg-img::after {
         content: '';
         position: absolute;
@@ -495,7 +502,7 @@ body {
     }
 
     .bt-div {
-        left:50%;
+        left: 50%;
         top: -6vw;
         translate: -50% -50%;
     }
@@ -516,6 +523,7 @@ body {
         justify-content: center;
         margin-top: 3px;
     }
+
     .tabs>img {
         width: 48%;
     }
@@ -525,7 +533,7 @@ body {
         grid-template-columns: repeat(4, 23.5vw);
         grid-template-rows: repeat(3, 23.5vw);
     }
-    
+
     .square {
         height: 23.5vw;
         width: 23.5vw;
@@ -534,15 +542,15 @@ body {
     .rotations {
         translate: -10%;
     }
-    
+
     .chest:first-child {
         translate: 0% 20%;
     }
-    
+
     .chest:last-child {
         translate: -10% 10%;
     }
-   
+
     .assinatura {
         translate: 0% 30%;
         right: 0;
@@ -569,7 +577,8 @@ body {
         width: calc(100% - 5vw);
     }
 
-    .true, .false {
+    .true,
+    .false {
         font-size: 0.6em;
     }
 
