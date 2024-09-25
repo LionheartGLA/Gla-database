@@ -3882,8 +3882,6 @@ inputField.addEventListener('change', () => {
     var number = parseInt(inputField.value)
     if (number < 1){
         inputField.value = 1;
-    } else if(number > 100){
-        inputField.value = 100;
     }
 
     calcIngredients();
