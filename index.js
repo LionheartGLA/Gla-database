@@ -12,6 +12,9 @@ const answersDiv = document.querySelector('.quiz-container');
 const colors = ["blue", "purple", "pink", "orange", "green", "red"];
 const numberOfSquares = 12;
 
+var food = "closed";
+var selectedFood = "Bife Wagyu";
+
 const answers = [
     {
         "text": "[GLA] A habilidade Liberation, do Marshall D. Teach, tem dois segundos de tempo de recarga e 18 de poder.",
@@ -3807,6 +3810,209 @@ document.addEventListener('keydown', function (event) {
         resetAll()
     }
 });
+
+document.querySelector('.food-bt').addEventListener('click', () => {
+    if (food === "closed") {
+        document.querySelector('.food-container').style.display = "flex";
+        food = "opened";
+    } else {
+        document.querySelector('.food-container').style.display = "none";
+        food = "closed";
+    }
+})
+
+document.querySelector('.food-container>.close-bt').addEventListener('click', () => {
+    document.querySelector('.food-container').style.display = "none";
+    food = "closed";
+})
+
+function populateFood() {
+    let foodList = document.querySelector('.food-list');
+    foods.forEach(food => {
+        let foodDiv = document.createElement('div');
+        foodDiv.classList.add('food-div');
+
+        let foodImgDiv = document.createElement('div');
+        foodImgDiv.classList.add('food-img-div')
+        let foodImg = document.createElement('img');
+        foodImg.src = food.img;
+
+        let foodName = document.createElement('p');
+        foodName.classList.add('food-name');
+        foodName.innerText = food.name;
+
+        let foodStatDiv = document.createElement('div');
+        foodStatDiv.classList.add('food-stats')
+        let foodLvl = document.createElement('p');
+        foodLvl.innerText = "Lv: " + food.lvl;
+
+        let foodCd = document.createElement('p');
+        foodCd.innerText = "Cd: " + food.cd;
+
+        foodDiv.addEventListener('click', () => {
+            selectedFood = food.name;
+            document.querySelector('.food-info-img').src = food.img;
+            document.querySelector('.food-info-name').innerText = food.name;
+            document.getElementById('tank-hp').innerText = food.TankHp;
+            document.getElementById('dps-hp').innerText = food.DpsHp;
+            document.getElementById('sup-hp').innerText = food.SupHp;
+            calcIngredients();
+            document.querySelectorAll('.food-div').forEach(div => {
+                div.classList.remove('selected');
+            });
+            foodDiv.classList.add('selected');
+        })
+        foodList.appendChild(foodDiv);
+        foodDiv.appendChild(foodImgDiv);
+        foodImgDiv.appendChild(foodImg);
+        foodDiv.appendChild(foodStatDiv);
+        foodStatDiv.appendChild(foodName);
+        foodStatDiv.appendChild(foodLvl);
+        foodStatDiv.appendChild(foodCd);
+    })
+}
+
+populateFood();
+document.querySelectorAll('.food-div')[0].classList.add('selected');
+
+const inputField = document.querySelector('.ing-input>input');
+
+inputField.addEventListener('change', () => {
+    inputField.value = inputField.value.replace(/[^0-9]/g, '');
+    var number = parseInt(inputField.value)
+    if (number < 1){
+        inputField.value = 1;
+    } else if(number > 100){
+        inputField.value = 100;
+    }
+
+    calcIngredients();
+});
+
+
+const ingList = document.querySelector('.ing-list');
+
+function secondsToHMS(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+
+    const formattedHours = String(hours).padStart(2, '0');
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(secs).padStart(2, '0');
+
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
+
+function calcIngredients() {
+    ingList.innerHTML = '';
+    const foodItem = foods.find(food => food.name === selectedFood);
+    const multiplier = parseInt(inputField.value, 10) || 1;
+    let foodCost = 0;
+    document.getElementById('craft-time').innerHTML = secondsToHMS(300 * multiplier);
+
+    if (foodItem && foodItem.ing) {
+        const ingredientMap = {};
+        foodItem.ing.forEach(ingredientsObject => {
+            for (const ingredientName in ingredientsObject) {
+                const quantity = ingredientsObject[ingredientName];
+                ingredientMap[ingredientName] = quantity;
+            }
+        });
+
+        ingredients.forEach(ingredient => {
+            const ingredientName = ingredient.name;
+            if (ingredientMap[ingredientName] !== undefined) {
+                const quantity = ingredientMap[ingredientName];
+                const ingredientDetails = ingredient;
+
+                const ingDiv = document.createElement('div');
+                ingDiv.classList.add('ing-div');
+
+                const ingImgDiv = document.createElement('div');
+                ingImgDiv.classList.add('ing-img');
+                const ingImg = document.createElement('img');
+                ingImg.src = ingredientDetails.img;
+                ingImg.alt = ingredientDetails.name;
+
+                const ingInfoDiv = document.createElement('div');
+                ingInfoDiv.classList.add('ing-info');
+
+                const ingName = document.createElement('p');
+                ingName.classList.add('ing-name');
+                ingName.textContent = ingredientName;
+
+                const ingQntdCostDiv = document.createElement('div');
+                ingQntdCostDiv.classList.add('ing-qntd-cost');
+
+                const ingCost = document.createElement('p');
+                const ingBerryImg = document.createElement('div');
+                ingBerryImg.classList.add('ing-berry');
+                ingBerryImg.style.backgroundImage = "url('Img/berry.png')";
+
+                const currentCost = ingredientDetails.cost * (quantity * multiplier);
+                ingCost.classList.add('ing-cost');
+                ingCost.textContent = currentCost;
+
+                foodCost += currentCost;
+
+                const ingQntd = document.createElement('p');
+                ingQntd.classList.add('ing-qntd');
+                ingQntd.textContent = `x${quantity * multiplier}`;
+
+                ingImgDiv.appendChild(ingImg);
+                ingInfoDiv.appendChild(ingName);
+                ingInfoDiv.appendChild(ingQntdCostDiv);
+                ingQntdCostDiv.appendChild(ingQntd);
+                ingQntdCostDiv.appendChild(ingBerryImg);
+                ingQntdCostDiv.appendChild(ingCost);
+
+                ingDiv.appendChild(ingImgDiv);
+                ingDiv.appendChild(ingInfoDiv);
+
+                ingList.appendChild(ingDiv);
+            }
+        });
+
+        const bronzeNeeded = foodCost;
+        const silverNeeded = Math.floor(bronzeNeeded / 100);
+        const goldNeeded = Math.floor(silverNeeded / 100);
+
+        const remainingSilver = silverNeeded % 100;
+        const remainingBronze = bronzeNeeded % 100;
+
+        document.getElementById('gold-cost').innerText = goldNeeded;
+        document.getElementById('silver-cost').innerText = remainingSilver;
+        document.getElementById('bronze-cost').innerText = remainingBronze;
+    }
+}
+
+
+
+
+
+calcIngredients();
+
+document.getElementById('ing-input-bt-1').addEventListener('click', () => {
+    inputField.value = 1;
+    calcIngredients();
+});
+
+document.getElementById('ing-input-bt-2').addEventListener('click', () => {
+    inputField.value = Math.max(1, Number(inputField.value) - 1);
+    calcIngredients();
+});
+
+document.getElementById('ing-input-bt-3').addEventListener('click', () => {
+    inputField.value = Math.min(100, Number(inputField.value) + 1);
+    calcIngredients();
+});
+
+document.getElementById('ing-input-bt-4').addEventListener('click', () => {
+    inputField.value = 100;
+    calcIngredients();
+});
+
 
 function populateRotation(div, rotation) {
     const container = document.querySelector(div);

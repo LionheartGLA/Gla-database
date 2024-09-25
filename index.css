@@ -5,6 +5,11 @@
     --grid-color: #2e2e2e;
     --backgroundT: #281c14;
     --backgroundTh: #20140c;
+    --background: #201414;
+    --border: #544434;
+    --foreground: #291c16;
+    --option: #33221c;
+    --selected: #3b2b23;
 }
 
 html,
@@ -265,6 +270,34 @@ body {
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
+    position: relative;
+}
+
+.bt-info, .bt-info-space {
+    display: none;
+}
+
+.rot-bt:hover>.bt-info, .dima-bt:hover>.bt-info, .food-bt:hover>.bt-info, .info-space:hover>.bt-info-space {
+    height:20px;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'roboto';
+    font-size: 0.7rem;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-wrap: nowrap;
+}
+
+.bt-info-space {
+    translate: -50% 0%;
 }
 
 .dima-bt {
@@ -278,8 +311,366 @@ body {
     filter: brightness(0.7);
 }
 
+.food-bt {
+    background-image: url('Img/foodButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+}
+
+.food-container {
+    position: absolute;
+    background-image: url("Img/foodContainer.png");
+    z-index: 10;
+    height: 400px;
+    aspect-ratio: 16/9;
+    display: none;
+}
+
+.close-bt {
+    height: 10%;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+}
+
+.close-bt:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+}
+
+.food-bg {
+    background-image: url('Img/kitchen.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 31.7%;
+    height: 74.5%;
+    left: 2.35%;
+    bottom: 5.1%;
+}
+
+.food-main {
+    position: absolute;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    width: 63.5%;
+    height: 74.7%;
+    right: 2.3%;
+    bottom: 4.7%;
+    display: flex;
+}
+
+.food-list, .food-ing {
+    display: flex;
+    background-color: var(--foreground);
+    border: 1px solid var(--border);
+    margin: 2px;
+    width: 100%;
+}
+
+.food-list {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 2px;
+}
+
+.food-div:first-child {
+    margin-top: 2px;
+}
+
+.food-div:last-child{
+    margin-bottom: 2px;
+}
+
+.food-div {
+    display: flex;
+    width: calc(100% - 7px);
+    font-family: 'roboto';
+    color: white;
+    min-height: 17%;
+    align-items: center;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.food-img-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin-right: 4px;
+}
+
+.food-img-div>img {
+    width: 32px;
+    height: 32px;
+}
+
+.food-stats {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.6rem;
+    justify-content: center;
+    flex: 2;
+}
+
+.food-stats>p {
+    margin: 0;
+    opacity: 0.5;
+}
+
+.food-name {
+    font-size: 0.7rem;
+    margin: 0;
+    opacity: 0.8 !important;
+}
+
+.food-div:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+.food-div.selected {
+    background-color: var(--selected);
+    filter: brightness(1.2);
+}
+
+.food-ing {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.food-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    flex-direction: column;
+    font-family: 'roboto';
+    color: white;
+}
+
+.craft-time {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    font-family: 'roboto';
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+}
+
+.info-space {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    color: white;
+    font-family: 'roboto';
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    scale: 0.9;
+}
+
+.info-space:hover {
+    filter: brightness(1.2);
+}
+
+.info-space>span {
+    scale: 0.8;
+}
+
+.clock {
+    scale: 0.7;
+}
+
+.food-info-img {
+    width: 32px;
+    height: 32px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.food-info-name {
+    font-size: 0.8rem;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.food-info-stats {
+    font-size: 0.7rem;
+}
+
+.food-info-hp {
+    display: flex;
+    gap: 20px;
+}
+
+.food-info-hp-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.food-info-hp-item>p {
+    margin-top: 3px;
+    color: rgb(28, 185, 28);
+}
+
+.food-info-hp-item-dps {
+    max-height: 20px;
+}
+
+.food-info-hp-item>img, .food-info-hp-item-dps>img {
+    width: 20px;
+    height: 20px;
+}
+
+.ingredients {
+    display: flex;
+    height: 57%;
+    width: calc(100% - 4px);
+    margin: 2px;
+    flex-direction: column;
+}
+
+.ing-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: calc(100% - 8px);
+    height: calc(100% - 33px);
+    margin-top: 4px;
+    gap: 2px;
+    margin-left: 2px;
+    overflow-y: scroll;
+    border: 1px solid var(--border);
+    padding-left: 2px;
+    padding-top: 2px;
+    background-color: var(--background);
+}
+
+.ing-input {
+    display: flex;
+    height: 20px;
+    margin-left: 2px;
+    margin-top: 2px;
+    gap: 2px;
+}
+
+.ing-input>input {
+    height: 18px;
+    width: 40px;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    text-align: center;
+    color: white;
+    font-family: 'roboto';
+}
+
+.ing-input-bt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 100%;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.ing-input-bt:hover {
+    cursor: pointer;
+    filter: brightness(1.2);
+}
+
+.berry-cost {
+    display: flex;
+    margin-left: auto;
+    color: white;
+    font-family: 'roboto';
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.berry-cost>img{
+    margin-right: -4px;
+}
+
+.berry-cost>p {
+    margin-right: 4px;
+    width: 20px;
+}
+
+.berry-cost>p:last-child {
+    margin: 0
+}
+
+.ing-div {
+    display: flex;
+    width: fit-content;
+    font-family: 'roboto';
+    color: white;
+    align-items: center;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    width: calc(100% - 2px);
+}
+
+.ing-info {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 44px);
+}
+
+.ing-name, .ing-cost, .ing-qntd {
+    font-size: 0.8rem;
+    margin: 0;
+    margin-top: 2px;
+}
+
+.ing-qntd-cost {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.ing-qntd {
+    left: 0;
+    position: absolute;
+}
+
+.ing-berry {
+    width: 20px;
+    height: 20px;
+    background-size: 150%;
+    background-position: center;
+}
+
+.ing-img {
+    display: flex;
+    position: relative;
+    margin-right: 6px;
+    width: 32px;
+    height: 32px;
+}
+
 .rot-bt:hover,
-.dima-bt:hover {
+.dima-bt:hover,
+.food-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }
@@ -466,6 +857,10 @@ body {
         height: 6vw;
         width: 6vw;
     }
+
+    .food-bt {
+        display: none;
+    }
 }
 
 @media (min-width: 600px) and (max-width: 768px) {
@@ -589,5 +984,9 @@ body {
     .color {
         height: 6vw;
         width: 6vw;
+    }
+
+    .food-bt {
+        display: none;
     }
 }
