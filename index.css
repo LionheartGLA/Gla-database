@@ -277,7 +277,12 @@ body {
     display: none;
 }
 
-.rot-bt:hover>.bt-info, .dima-bt:hover>.bt-info, .food-bt:hover>.bt-info, .info-space:hover>.bt-info-space {
+.rot-bt:hover>.bt-info,
+.dima-bt:hover>.bt-info,
+.food-bt:hover>.bt-info,
+.info-space:hover>.bt-info-space,
+.chest-bt:hover>.bt-info,
+.wb-bt:hover>.bt-info {
     height:20px;
     width: fit-content;
     position: absolute;
@@ -294,6 +299,7 @@ body {
     padding-left: 4px;
     padding-right: 4px;
     text-wrap: nowrap;
+    pointer-events: none;
 }
 
 .bt-info-space {
@@ -318,9 +324,32 @@ body {
     width: 34px;
 }
 
+.wb-bt {
+    background-image: url('Img/wbButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+}
+
+.chest-bt {
+    background-image: url('Img/chestButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
+}
+
 .food-container {
     position: absolute;
     background-image: url("Img/foodContainer.png");
+    z-index: 10;
+    height: 400px;
+    aspect-ratio: 16/9;
+    display: none;
+}
+
+.wb-container {
+    position: absolute;
+    background-image: url("Img/wbContainer.png");
     z-index: 10;
     height: 400px;
     aspect-ratio: 16/9;
@@ -348,6 +377,161 @@ body {
     height: 74.5%;
     left: 2.35%;
     bottom: 5.1%;
+}
+
+.wb-list {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    position: absolute;
+    width: 30%;
+    height: 74.5%;
+    left: 2.35%;
+    bottom: 5.1%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.wb-main {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    position: absolute;
+    width: 64.5%;
+    height: 74.5%;
+    right: 2.35%;
+    bottom: 5.1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wb-date-container {
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 2px;
+    font-family: 'roboto';
+    font-size: 0.8rem;
+}
+
+.wb-date-bt,
+.wb-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    height: 18px;
+    width: 18px;
+    margin-top: 2px;
+}
+
+.wb-date-bt:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+}
+
+.wb-date {
+    width: 100px;
+}
+
+.wb-ranking-container {
+    display: flex;
+    border: 1px solid var(--border);
+    width: calc(100% - 6px);
+    height: 91%;
+    margin: 2px;
+    flex-direction: column;
+}
+
+.wb-rank-topbar {
+    display: flex;
+    height: 20px;
+    width: calc(100% - 4px);
+    margin: 2px;
+    gap: 2px;
+}
+
+.wb-topbar-item {
+    display: flex;
+    color: white;
+    font-size: 0.8rem;
+    font-family: 'roboto';
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.rank-number{
+    max-width: 20px;
+}
+
+.rank-players {
+    min-width: 40%;
+}
+
+.wb-rank {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    color: white;
+    font-family: 'roboto';
+    font-size: 0.8rem;
+}
+
+tr {
+    display: flex;
+}
+
+td {
+    flex: 1;
+}
+
+td:first-child {
+    flex: none;
+    width: 15px !important;
+}
+
+td {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+tr {
+    background-color: #1b120e;
+}
+
+tr:nth-child(even) {
+    background-color: #1f1510;
+}
+
+td>a {
+    display: flex;
+}
+
+.wb {
+    width: 190px;
+    height: 54px;
+    background-position: center;
+    background-size: contain;
+    filter: brightness(0.5);
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+
+.wb:hover {
+    filter: brightness(0.8);
+}
+
+.wb.selected {
+    filter: brightness(1);
 }
 
 .food-main {
@@ -670,7 +854,9 @@ body {
 
 .rot-bt:hover,
 .dima-bt:hover,
-.food-bt:hover {
+.food-bt:hover,
+.chest-bt:hover,
+.wb-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }

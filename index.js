@@ -14,6 +14,10 @@ const numberOfSquares = 12;
 
 var food = "closed";
 var selectedFood = "Bife Wagyu";
+var wb = "closed";
+
+var selectedWb = "Marineford";
+var selectedWbDate = 0;
 
 const answers = [
     {
@@ -3760,6 +3764,85 @@ function handleColorButtonClick(event) {
     }
 }
 
+function createRankingLine(entry) {
+    let tr = document.createElement('tr');
+    let tdRank = document.createElement('td');
+    let tdPlayers = document.createElement('td');
+    let tdWave = document.createElement('td');
+    let tdTime = document.createElement('td');
+
+    tdRank.textContent = entry.rank;
+    entry.players.forEach(player => {
+        let playerLink = document.createElement('a');
+        playerLink.textContent = player;
+        tdPlayers.appendChild(playerLink);
+    });
+    
+    tdWave.textContent = entry.wave;
+    tdTime.textContent = entry.time;
+
+    tr.appendChild(tdRank);
+    tr.appendChild(tdPlayers);
+    tr.appendChild(tdWave);
+    tr.appendChild(tdTime);
+
+    document.querySelector('.wb-rank').appendChild(tr);
+}
+
+function populateRanking(wbRank) {
+    document.querySelector('.wb-rank').innerHTML = '';
+    wbRank.forEach(entry => {
+        createRankingLine(entry);
+    });
+}
+
+populateRanking(worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].ranking);
+
+document.querySelector('#wb-date-left').addEventListener('click', () => {
+    if(selectedWbDate >= 0 && selectedWbDate < (worldBosses.find(wb => wb.name === selectedWb).dates.length - 1)){
+        selectedWbDate += 1;
+        populateRanking(worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].ranking);
+        document.querySelector('.wb-date>p').innerHTML = worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].date;
+    }
+});
+
+document.querySelector('#wb-date-right').addEventListener('click', () => {
+    if(selectedWbDate > 0 && selectedWbDate <= (worldBosses.find(wb => wb.name === selectedWb).dates.length - 1)){
+        selectedWbDate -= 1;
+        populateRanking(worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].ranking);
+        document.querySelector('.wb-date>p').innerHTML = worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].date;
+    }
+});
+
+function populateWb(){
+    const wbList = document.querySelector('.wb-list');
+    wbList.innerHTML = '';
+
+    worldBosses.forEach(wb => {
+        const wbDiv = document.createElement('div');
+        wbDiv.classList.add('wb');
+        wbDiv.style.backgroundImage = `url(${wb.img})`;
+
+        wbDiv.addEventListener('click', () => {
+            selectedWb = wb.name;
+            document.querySelectorAll('.wb').forEach(element => {
+                element.classList.remove('selected');
+            })
+            wbDiv.classList.add('selected');
+            selectedWbDate = 0;
+            populateRanking(worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].ranking);
+            document.querySelector('.wb-date>p').innerHTML = worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].date;
+        })
+
+        wbList.appendChild(wbDiv);
+    })
+
+    wbList.querySelectorAll('.wb')[0].classList.add('selected');
+
+}
+
+populateWb();
+
 document.addEventListener('click', function (event) {
     if (event.target.classList.contains('color')) {
         handleColorButtonClick(event);
@@ -3813,17 +3896,48 @@ document.addEventListener('keydown', function (event) {
 
 document.querySelector('.food-bt').addEventListener('click', () => {
     if (food === "closed") {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        wb = "closed";
         document.querySelector('.food-container').style.display = "flex";
         food = "opened";
     } else {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        wb = "closed";
         document.querySelector('.food-container').style.display = "none";
         food = "closed";
     }
 })
 
-document.querySelector('.food-container>.close-bt').addEventListener('click', () => {
-    document.querySelector('.food-container').style.display = "none";
-    food = "closed";
+document.querySelector('.wb-bt').addEventListener('click', () => {
+    if (wb === "closed") {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        food = "closed";
+        document.querySelector('.wb-container').style.display = "flex";
+        wb = "opened";
+    } else {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        food = "closed";
+        document.querySelector('.wb-container').style.display = "none";
+        wb = "closed";
+    }
+})
+
+document.querySelectorAll('.close-bt').forEach(bt => {
+    bt.addEventListener('click', () => {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        food = "closed";
+        wb = "closed";
+    })
 })
 
 function populateFood() {
