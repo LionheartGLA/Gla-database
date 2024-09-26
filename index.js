@@ -3767,9 +3767,13 @@ function handleColorButtonClick(event) {
 function createRankingLine(entry) {
     let tr = document.createElement('tr');
     let tdRank = document.createElement('td');
+    tdRank.classList.add('td-rank');
     let tdPlayers = document.createElement('td');
+    tdPlayers.classList.add('td-players');
     let tdWave = document.createElement('td');
+    tdWave.classList.add('td-wave');
     let tdTime = document.createElement('td');
+    tdTime.classList.add('td-time');
 
     tdRank.textContent = entry.rank;
     entry.players.forEach(player => {
@@ -3832,13 +3836,17 @@ function populateWb(){
             selectedWbDate = 0;
             populateRanking(worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].ranking);
             document.querySelector('.wb-date>p').innerHTML = worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].date;
+            if(wb.name === "Marineford"){
+                document.getElementById('wave-dmg-text').innerHTML = "Wave";
+            } else {
+                document.getElementById('wave-dmg-text').innerHTML = "Dano";
+            }
         })
 
         wbList.appendChild(wbDiv);
     })
 
     wbList.querySelectorAll('.wb')[0].classList.add('selected');
-
 }
 
 populateWb();

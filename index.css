@@ -471,6 +471,14 @@ body {
     min-width: 40%;
 }
 
+.rank-time {
+    min-width: 35%;
+}
+
+.rank-right {
+    max-width: 13px;
+}
+
 .wb-rank {
     display: flex;
     flex-direction: column;
@@ -485,13 +493,21 @@ tr {
     display: flex;
 }
 
-td {
-    flex: 1;
-}
-
 td:first-child {
     flex: none;
     width: 15px !important;
+}
+
+.td-players {
+    width: 41.5%;
+}
+
+.td-wave {
+    width: 12.8%;
+}
+
+.td-time {
+    width: 36.5%;
 }
 
 td {
@@ -501,6 +517,7 @@ td {
     padding: 4px;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 tr {
