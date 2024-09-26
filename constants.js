@@ -95,7 +95,7 @@ const ingredients = [
 
 const worldBosses = [
     {
-        name: "Marineford", img: "Img/Wb/Marineford.png", dates: [
+        name: "Marineford", img: "Img/Wb/marineford.png", dates: [
             {
                 date: "13/09/2024",
                 ranking: [
