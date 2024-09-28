@@ -14,10 +14,13 @@ const numberOfSquares = 12;
 
 var food = "closed";
 var selectedFood = "Bife Wagyu";
-var wb = "closed";
 
+var wb = "closed";
 var selectedWb = "Marineford";
 var selectedWbDate = 0;
+
+var chest = "closed";
+var chestSelectedTab = "Chests";
 
 const answers = [
     {
@@ -3908,6 +3911,7 @@ document.querySelector('.food-bt').addEventListener('click', () => {
             container.style.display = "none";
         });
         wb = "closed";
+        chest = "closed";
         document.querySelector('.food-container').style.display = "flex";
         food = "opened";
     } else {
@@ -3915,10 +3919,11 @@ document.querySelector('.food-bt').addEventListener('click', () => {
             container.style.display = "none";
         });
         wb = "closed";
+        chest = "closed";
         document.querySelector('.food-container').style.display = "none";
         food = "closed";
     }
-})
+});
 
 document.querySelector('.wb-bt').addEventListener('click', () => {
     if (wb === "closed") {
@@ -3928,6 +3933,7 @@ document.querySelector('.wb-bt').addEventListener('click', () => {
         food = "closed";
         document.querySelector('.wb-container').style.display = "flex";
         wb = "opened";
+        document.querySelector('.wb-date>p').innerHTML = worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].date
     } else {
         document.querySelectorAll(".container-tab").forEach(container => {
             container.style.display = "none";
@@ -3936,7 +3942,31 @@ document.querySelector('.wb-bt').addEventListener('click', () => {
         document.querySelector('.wb-container').style.display = "none";
         wb = "closed";
     }
-})
+});
+
+document.querySelector('.chest-bt').addEventListener('click', () => {
+    if (chest === "closed") {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        food = "closed";
+        wb = "closed";
+        document.querySelector('.chest-container').style.display = "flex";
+        chest = "opened";
+        populateTabLeft();
+        populateChestInfo(islands[0]);
+        document.querySelectorAll('.chest-item-div')[0].classList.add('selected');
+    } else {
+        document.querySelectorAll(".container-tab").forEach(container => {
+            container.style.display = "none";
+        });
+        food = "closed";
+        wb = "closed";
+        document.querySelector('.chest-container').style.display = "none";
+        chest = "closed";
+        document.querySelector('.chests-left').innerHTML = ''
+    }
+});
 
 document.querySelectorAll('.close-bt').forEach(bt => {
     bt.addEventListener('click', () => {
@@ -3945,6 +3975,7 @@ document.querySelectorAll('.close-bt').forEach(bt => {
         });
         food = "closed";
         wb = "closed";
+        chest = "closed";
     })
 })
 
@@ -4107,11 +4138,121 @@ function calcIngredients() {
     }
 }
 
-
-
-
-
 calcIngredients();
+
+function populateTabLeft(){
+    const container = document.querySelector('.chests-left');
+    container.innerHTML = '';
+
+    if(chestSelectedTab === "Chests"){
+        document.querySelector('.achiev-list').style.display = 'none';
+        document.querySelector('.chest-list').style.display = 'flex';
+        islands.forEach(island => {
+            const islandDiv = document.createElement('div');
+            islandDiv.classList.add('chest-item-div');
+    
+            const islandName = document.createElement('p');
+            islandName.innerText = island.name;
+    
+            container.appendChild(islandDiv);
+            islandDiv.appendChild(islandName);
+    
+            islandDiv.addEventListener('click', () => {
+                populateChestInfo(island);
+                document.querySelectorAll('.chest-item-div').forEach(div => {
+                    div.classList.remove('selected');
+                });
+                islandDiv.classList.add('selected');
+            });
+        });
+    } else if(chestSelectedTab === "Achievs"){
+        document.querySelector('.chest-list').innerHTML = '';
+        document.querySelector('.chest-list').style.display = 'none';
+        document.querySelector('.achiev-list').style.display = 'flex';
+        achievements.forEach(achiev => {
+            const achievDiv = document.createElement('div');
+            achievDiv.classList.add('achiev-item-div');
+
+            const achievImg = document.createElement('div');
+            achievImg.style.backgroundImage = `url(${achiev.img})`;
+            achievImg.classList.add('achiev-img');
+    
+            const achievName = document.createElement('p');
+            achievName.innerText = achiev.name;
+    
+            container.appendChild(achievDiv);
+            achievDiv.appendChild(achievImg);
+            achievDiv.appendChild(achievName);
+    
+            achievDiv.addEventListener('click', () => {
+                populateAchievInfo(achiev);
+                document.querySelectorAll('.achiev-item-div').forEach(div => {
+                    div.classList.remove('selected');
+                });
+                achievDiv.classList.add('selected');
+            });
+        });
+    }
+}
+
+function populateChestInfo(island){
+    const container = document.querySelector('.chest-list');
+    container.innerHTML = '';
+
+    island.chests.forEach((chest, index) => {
+        const chestDiv = document.createElement('div');
+        chestDiv.classList.add('chest-div');
+
+        const chestImg = document.createElement('div');
+        chestImg.classList.add('chest-img');
+
+        chestDiv.appendChild(chestImg);
+
+        const itemsContainer = document.createElement('div');
+        itemsContainer.classList.add('items-container');
+        chest.forEach(e => {
+            const itemData = items.find(element => element.name === e.item);
+            if(itemData){
+                const itemImg = document.createElement('div');
+                itemImg.style.backgroundImage = `url(${itemData.img})`;
+                itemImg.classList.add('item-img');
+    
+                if(e.quantity > 1){
+                    const itemQuantity = document.createElement('p');
+                    itemQuantity.innerText = e.quantity;
+                    itemQuantity.classList.add('item-qntd');
+                    itemImg.appendChild(itemQuantity);
+                }
+    
+                itemsContainer.appendChild(itemImg);
+            }
+        });
+        console.log(index)
+        chestDiv.appendChild(itemsContainer);
+        container.appendChild(chestDiv);
+    });
+}
+
+function populateAchievInfo(achiev){
+    const container = document.querySelector('.achiev-list');
+    container.innerHTML = '';
+
+    const achievName = document.createElement('p');
+    achievName.innerText = achiev.name;
+    achievName.classList.add('achiev-name');
+    container.appendChild(achievName);
+
+    const achievDesc = document.createElement('p');
+    achievDesc.innerText = achiev.description;
+    achievDesc.classList.add('achiev-desc');
+    container.appendChild(achievDesc);
+
+    achiev.directions.forEach(img => {
+        const imgElement = document.createElement('img');
+        imgElement.classList.add('achiev-directions');
+        container.appendChild(imgElement);
+    });
+}
 
 document.getElementById('ing-input-bt-1').addEventListener('click', () => {
     inputField.value = 1;
@@ -4132,6 +4273,28 @@ document.getElementById('ing-input-bt-4').addEventListener('click', () => {
     inputField.value = 100;
     calcIngredients();
 });
+
+document.querySelector('#chests').addEventListener('click', () => {
+    if(chestSelectedTab !== "Chest"){
+        chestSelectedTab = "Chests";
+        document.querySelector('#achievs').classList.remove('selected');
+        document.querySelector('#chests').classList.add('selected');
+        populateTabLeft();
+        populateChestInfo(islands[0]);
+        document.querySelectorAll(".chest-item-div")[0].classList.add('selected');
+    }
+})
+
+document.querySelector('#achievs').addEventListener('click', () => {
+    if(chestSelectedTab !== "Achievs"){
+        chestSelectedTab = "Achievs";
+        document.querySelector('#achievs').classList.add('selected');
+        document.querySelector('#chests').classList.remove('selected');
+        populateTabLeft();
+        populateAchievInfo(achievements[0]);
+        document.querySelectorAll(".achiev-item-div")[0].classList.add('selected');
+    }
+})
 
 
 function populateRotation(div, rotation) {

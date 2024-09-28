@@ -97,6 +97,71 @@ const worldBosses = [
     {
         name: "Marineford", img: "Img/Wb/marineford.png", dates: [
             {
+                date: "27/09/2024",
+                ranking: [
+                    {
+                        "rank": 1,
+                        "players": ["Papai Curry", "Stein", "Lpz Cruel", "Don Faker", "Rx Brbb", "Salvathore"],
+                        "wave": 153,
+                        "time": "-83438:26:08"
+                    },
+                    {
+                        "rank": 2,
+                        "players": ["Pykezin", "Taca Maeno", "Lord Zona Norte", "Wisce", "Raingard", "Lord Joao Pedro"],
+                        "wave": 75,
+                        "time": "01:42:56"
+                    },
+                    {
+                        "rank": 3,
+                        "players": ["Ayver O Toxico", "Pocotojuliano", "Soyeon", "Rotevis", "Johnny D Brabo", "Mr Patolino"],
+                        "wave": 60,
+                        "time": "01:04:50"
+                    },
+                    {
+                        "rank": 4,
+                        "players": ["Imaim", "Menelzinho", "Lightzin", "Falconns", "O Robi", "Dark Nth"],
+                        "wave": 60,
+                        "time": "01:05:37"
+                    },
+                    {
+                        "rank": 5,
+                        "players": ["Lenhador Calvo", "Bettlejuice", "King Fofao", "Bosterman", "Joyboy Stark", "Sunn Mond"],
+                        "wave": 60,
+                        "time": "01:10:03"
+                    },
+                    {
+                        "rank": 6,
+                        "players": ["Batskillua", "Desalmed", "Embu", "Jota", "Lipezs", "Lerc"],
+                        "wave": 60,
+                        "time": "01:13:40"
+                    },
+                    {
+                        "rank": 7,
+                        "players": ["Xtein", "CrossD", "Tifa Lockhart", "Hayasaka", "Alucard", "Xuemba"],
+                        "wave": 60,
+                        "time": "01:15:34"
+                    },
+                    {
+                        "rank": 8,
+                        "players": ["Danilo Skatista", "Yano", "Shiina", "Duk Das Codorna", "Gui Leiteiro", "Raz Dwa Trzymaj"],
+                        "wave": 60,
+                        "time": "01:17:53"
+                    },
+                    {
+                        "rank": 9,
+                        "players": ["A B B A", "Luppzy", "Jnrzerah", "Yamato", "Phynx", "Kyav"],
+                        "wave": 58,
+                        "time": "01:11:51"
+                    },
+                    {
+                        "rank": 10,
+                        "players": ["Miwa San", "Smoked", "Oxyon", "Another Song", "Asura", "Artur"],
+                        "wave": 53,
+                        "time": "01:03:43"
+                    },
+                ]
+            },
+            {
                 date: "13/09/2024",
                 ranking: [
                     {
@@ -158,66 +223,6 @@ const worldBosses = [
                         "players": ["Emperor Azir", "Oru Maiito", "Usop Trezentos", "Mimi Shizumi", "Pirataqueestica", "Ayase Momo"],
                         "wave": 45,
                         "time": "00:54:50"
-                    },
-                    {
-                        "rank": 11,
-                        "players": ["Snake Torment", "Exquil", "Khannz", "Sukuna", "Kael Nortn", "Red Velvet"],
-                        "wave": 45,
-                        "time": "00:56:10"
-                    },
-                    {
-                        "rank": 12,
-                        "players": ["Sance Nikeboy", "Baianin Soberbo", "Houdini Nikeboy", "Ryan Nikeboy", "Abraaon", "Victin Nikeboy"],
-                        "wave": 45,
-                        "time": "00:56:36"
-                    },
-                    {
-                        "rank": 13,
-                        "players": ["Homem Borboleto", "Fluminense", "Hordes Marley", "Lukz", "Turner", "Oldhawk"],
-                        "wave": 45,
-                        "time": "00:59:44"
-                    },
-                    {
-                        "rank": 14,
-                        "players": ["Bantex", "Lalf", "Heisenberg", "Vito O Mod", "Zokres Nikeboy", "Asura"],
-                        "wave": 43,
-                        "time": "00:48:02"
-                    },
-                    {
-                        "rank": 15,
-                        "players": ["Paranoises", "Neowz", "Rowlet", "Feelsrainman", "Risinng", "Loxinho"],
-                        "wave": 43,
-                        "time": "00:52:19"
-                    },
-                    {
-                        "rank": 16,
-                        "players": ["The Petermann", "Miguelandia", "Romance", "Easy Money", "Chonicks", "O Robi"],
-                        "wave": 43,
-                        "time": "00:55:56"
-                    },
-                    {
-                        "rank": 17,
-                        "players": ["Lord Joao Pedro", "Revolt", "Lucifer", "Proenca", "Grio", "Linner"],
-                        "wave": 43,
-                        "time": "00:56:28"
-                    },
-                    {
-                        "rank": 18,
-                        "players": ["Les Ayverman", "Pocotojuliano", "Soyeon", "Rotevis", "Johnny D Brabo", "Dark Nth"],
-                        "wave": 37,
-                        "time": "00:39:21"
-                    },
-                    {
-                        "rank": 19,
-                        "players": ["Jaiminho", "Aeros", "Tumgemas", "Heido", "Enriq Fmz", "Levi"],
-                        "wave": 31,
-                        "time": "00:34:29"
-                    },
-                    {
-                        "rank": 20,
-                        "players": ["Sigzarus", "Don Junior", "Patin", "Yami Hikari", "Reyna", "Japeize"],
-                        "wave": 30,
-                        "time": "00:27:12"
                     },
                 ]
             },
@@ -313,4 +318,669 @@ const worldBosses = [
             },
         ]
     },
+]
+
+const items = [
+    {name: "Algodão", img: "Img/Items/Algodao.png"},
+    {name: "Algodão de Baixa Qualidade", img: "Img/Items/AlgodaoBaixaQualidade.png"},
+    {name: "Atadura", img: "Img/Items/Atadura.png"},
+    {name: "Banana", img: "Img/Items/Banana.png"},
+    {name: "Band-aid", img: "Img/Items/Bandaid.png"},
+    {name: "Band-aid Pequeno", img: "Img/Items/Bandaidpequeno.png"},
+    {name: "Bandana de Bandido", img: "Img/Items/BandanaBandido.png"},
+    {name: "Bolsa de Jóias", img: "Img/Items/BolsaJoias.png"},
+    {name: "Boné de Recruta", img: "Img/Items/BoneRecruta.png"},
+    {name: "Bracelete Dourado", img: "Img/Items/BraceleteDourado.png"},
+    {name: "Calça de Recruta", img: "Img/Items/CalçaRecruta.png"},
+    {name: "Cálice de Ouro", img: "Img/Items/CaliceOuro.png"},
+    {name: "Camisa Black-Cat", img: "Img/Items/CamisaBlackCat.png"},
+    {name: "Camisa de Recruta", img: "Img/Items/CamisaRecruta.png"},
+    {name: "Casaco da Marinha", img: "Img/Items/CasacoMarinha.png"},
+    {name: "Chave de Baú", img: "Img/Items/Chave.png"},
+    {name: "10x Chaves de Baú", img: "Img/Items/Chave.png"},
+    {name: "ColarAntigo", img: "Img/Items/ColarAntigo.png"},
+    {name: "Coroa de Ouro", img: "Img/Items/CoroaOuro.png"},
+    {name: "Coxa de Carne", img: "Img/Items/CoxaCarne.png"},
+    {name: "Guarda-chuva dos Sand Pirates", img: "Img/Items/GuardaChuva.png"},
+    {name: "Kit de Reparo 1.0", img: "Img/Items/KitReparo1.png"},
+    {name: "Kit de Reparo 2.0", img: "Img/Items/KitReparo2.png"},
+    {name: "Kit de Reparo 3.0", img: "Img/Items/KitReparo3.png"},
+    {name: "Kit de Reparo 4.0", img: "Img/Items/KitReparo4.png"},
+    {name: "Kit de Reparo 5.0", img: "Img/Items/KitReparo5.png"},
+    {name: "Lingote de Aço", img: "Img/Items/LingoteAço.png"},
+    {name: "Lingote de Ferro", img: "Img/Items/LingoteFerro.png"},
+    {name: "Maçã", img: "Img/Items/Maça.png"},
+    {name: "Minério de Cobre", img: "Img/Items/MinerioCobre.png"},
+    {name: "Minério de Ferro", img: "Img/Items/MinerioFerro.png"},
+    {name: "Onigiri", img: "Img/Items/Onigiri.png"},
+    {name: "Pano", img: "Img/Items/Pano.png"},
+    {name: "Pano Melhorado", img: "Img/Items/PanoMelhorado.png"},
+    {name: "Pedaço de Carne", img: "Img/Items/PedaçoCarne.png"},
+    {name: "Pederneira Antiga", img: "Img/Items/PederneiraAntiga.png"},
+    {name: "Pera", img: "Img/Items/Pera.png"},
+    {name: "Poção Grande de EXP", img: "Img/Items/PoçaoGrandeExp.png"},
+    {name: "Poção Média de EXP", img: "Img/Items/PoçaoMediaExp.png"},
+    {name: "Poção Pequena de EXP", img: "Img/Items/PoçaoPequenaExp.png"},
+    {name: "Poção de Stamina do EB", img: "Img/Items/PoçaoStaminaEb.png"},
+    {name: "Poção de Stamina da GL", img: "Img/Items/PoçaoStaminaGl.png"},
+    {name: "Pólvora", img: "Img/Items/Polvora.png"},
+    {name: "Pólvora Melhorada", img: "Img/Items/PolvoraMelhorada.png"},
+    {name: "Pólvora Superior", img: "Img/Items/PolvoraSuperior.png"},
+    {name: "Prancha de Carvalho", img: "Img/Items/PranchaCarvalho.png"},
+    {name: "Pranchas de Mogno", img: "Img/Items/PranchasMogno.png"},
+    {name: "Rifle", img: "Img/Items/Rifle.png"},
+    {name: "Rubi em Forma de Coração", img: "Img/Items/Rubi.png"},
+    {name: "Sabre Velho", img: "Img/Items/SabreVelho.png"},
+    {name: "Sake", img: "Img/Items/Sake.png"},
+    {name: "Talismã da Aranha", img: "Img/Items/TalismaAranha.png"},
+    {name: "Tora de Carvalho", img: "Img/Items/ToraCarvalho.png"},
+    {name: "Tora de Madeira", img: "Img/Items/ToraMadeira.png"},
+    {name: "Peixe Cru", img: "Img/Food/Ingredientes/PeixeCru.png"},
+    {name: "Berry de Ouro", img: "Img/gold.png"},
+    {name: "Berry de Prata", img: "Img/silver.png"},
+    {name: "Berry de Bronze", img: "Img/berry.png"},
+]
+
+const islands = [
+    {
+        name: "East Blue", chests: [
+            [
+                { item: "Bracelete Dourado", quantity: 4 },
+                { item: "Kit de Reparo 2.0", quantity: 2 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 2 },
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 2 },
+                { item: "Kit de Reparo 2.0", quantity: 2 },
+            ],
+            [
+                { item: "Tora de Carvalho", quantity: 9 },
+                { item: "Minério de Ferro", quantity: 6 },
+                { item: "Algodão", quantity: 12 },
+                { item: "Kit de Reparo 3.0", quantity: 1 },
+            ],
+            [
+                { item: "Tora de Madeira", quantity: 40 },
+                { item: "Minério de Cobre", quantity: 25 },
+                { item: "Algodão de Baixa Qualidade", quantity: 80 },
+                { item: "Pólvora", quantity: 13 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 1 },
+                { item: "Tora de Madeira", quantity: 20 },
+                { item: "Minério de Cobre", quantity: 8 },
+                { item: "Kit de Reparo 1.0", quantity: 1 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 2 },
+                { item: "Algodão de Baixa Qualidade", quantity: 25 },
+                { item: "Pólvora", quantity: 4 },
+            ],
+            [
+                { item: "Pólvora Melhorada", quantity: 5 },
+                { item: "Coroa de Ouro", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 9 },
+                { item: "Kit de Reparo 1.0", quantity: 6 },
+                { item: "Poção Pequena de EXP", quantity: 12 },
+            ],
+            [
+                { item: "Berry de Ouro", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Foosha Village", chests: [
+            [
+                { item: "Onigiri", quantity: 5 },
+            ],
+            [
+                { item: "Bandana de Bandido", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 1 },
+                { item: "Berry de Bronze", quantity: 15 },
+            ],
+            [
+                { item: "Banana", quantity: 5 },
+            ],
+            [
+                { item: "Coxa de Carne", quantity: 2 },
+                { item: "Berry de Bronze", quantity: 10 },
+            ],
+            [
+                { item: "Berry de Bronze", quantity: 22 },
+            ],
+            [
+                { item: "10x Chaves de Baú", quantity: 1 },
+            ],
+        ],
+    },
+    {
+        name: "Shells Town", chests: [
+            [
+                { item: "Berry de Bronze", quantity: 50 },
+                { item: "Poção Pequena de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 3 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Colar Antigo", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 4 },
+                { item: "Poção Pequena de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Maçã", quantity: 4 },
+                { item: "Berry de Bronze", quantity: 20 },
+                { item: "Poção Pequena de EXP", quantity: 1},
+            ],
+        ],
+    },
+    {
+        name: "Samui Island", chests: [
+            [
+                { item: "Atadura", quantity: 3 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Berry de Prata", quantity: 1 },
+                { item: "Berry de Bronze", quantity: 20 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Berry de Bronze", quantity: 80 },
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Orange Town", chests: [
+            [
+                { item: "Cálice de Ouro", quantity: 1 },
+                { item: "Berry de Bronze", quantity: 80 },
+                { item: "Poção Pequena de EXP", quantity: 3 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 4 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Atadura", quantity: 2 },
+                { item: "Pedaço de Carne", quantity: 3 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Sabre Velho", quantity: 1 },
+                { item: "Pederneira Antiga", quantity: 1 },
+                { item: "Berry de Bronze", quantity: 50 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Syrup Village", chests: [
+            [
+                { item: "Cálice de Ouro", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Pera", quantity: 5 },
+                { item: "Poção Pequena de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 1 },
+                { item: "Bracelete Dourado", quantity: 6 },
+                { item: "Poção Pequena de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Band-Aid Pequeno", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Camisa Black Cat", quantity: 1 },
+                { item: "Banana", quantity: 5 },
+                { item: "Poção Pequena de EXP", quantity: 8 },
+            ],
+        ],
+    },
+    {
+        name: "Island of Rare Animals", chests: [
+            [
+                { item: "Cálice de Ouro", quantity: 1 },
+                { item: "Bracelete Dourado", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 1 },
+                { item: "Bracelete Dourado", quantity: 6 },
+                { item: "Cálice de Ouro", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Baratie", chests: [
+            [
+                { item: "Berry de Bronze", quantity: 50 },
+                { item: "Peixe Cru", quantity: 10 },
+                { item: "Poção Média de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 1 },
+            ],
+        ],
+    },
+    {
+        name: "Cocoyasi Village", chests: [
+            [
+                { item: "Band-Aid", quantity: 3 },
+                { item: "Poção Média de EXP", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 3 },
+                { item: "Berry de Bronze", quantity: 50 },
+            ],
+            [
+                { item: "Band-Aid", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 12 },
+                { item: "Poção Média de EXP", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 1 },
+                { item: "Poção Pequena de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Chave de Baú", quantity: 1 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 3 },
+                { item: "Poção Média de EXP", quantity: 2 },
+                { item: "Poção Pequena de EXP", quantity: 4 },
+            ],
+        ],
+    },
+    {
+        name: "Loguetown", chests: [
+            [
+                { item: "Poção de Stamina do EB", quantity: 3 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 1 },
+                { item: "Bolsa de Jóias", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Poção de Stamina do EB", quantity: 2 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 1 },
+                { item: "Bracelete Dourado", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Boné de Recruta", quantity: 1 },
+                { item: "Camisa de Recruta", quantity: 1 },
+                { item: "Calça de Recruta", quantity: 1 },
+                { item: "Rifle", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 8 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Kumo Island", chests: [
+            [
+                { item: "Bolsa de Jóias", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 1 },
+                { item: "Cálice de Ouro", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Talismã da Aranha", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Grand Line", chests: [
+            [
+                { item: "Prancha de Carvalho", quantity: 3 },
+                { item: "Lingote de Ferro", quantity: 3 },
+                { item: "Pano", quantity: 3 },
+                { item: "Pólvora Melhorada", quantity: 11 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Pranchas de Mogno", quantity: 3 },
+                { item: "Lingote de Aço", quantity: 3 },
+                { item: "Pano Melhorado", quantity: 3 },
+                { item: "Pólvora Superior", quantity: 11 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Pólvora Superior", quantity: 44 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Pano Melhorado", quantity: 11 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Pranchas de Mogno", quantity: 14 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Lingote de Ferro", quantity: 11 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Pano", quantity: 11 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Prancha de Carvalho", quantity: 14 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Pólvora Melhorada", quantity: 45 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Lingote de Aço", quantity: 11 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Gunkan Island", chests: [
+            [
+                { item: "Cálice de Ouro", quantity: 6 },
+                { item: "Bracelete Dourado", quantity: 6 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 3 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 3 },
+                { item: "Cálice de Ouro", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Lost Island", chests: [
+            [
+                { item: "Bolsa de Jóias", quantity: 2 },
+                { item: "Cálice de Ouro", quantity: 2 },
+                { item: "Bracelete Dourado", quantity: 5 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 3 },
+            ],
+        ],
+    },
+    {
+        name: "Whisky Peak", chests: [
+            [
+                { item: "Bolsa de Jóias", quantity: 5 },
+                { item: "Bracelete Dourado", quantity: 12 },
+                { item: "Poção Média de EXP", quantity: 4 },
+            ],
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 3 },
+                { item: "Berry de Prata", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+        ],
+    },
+    {
+        name: "Little Garden", chests: [
+            [
+                { item: "Poção Média de EXP", quantity: 6 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 5 },
+                { item: "Bolsa de Jóias", quantity: 1 },
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 6 },
+                { item: "Poção Média de EXP", quantity: 6 },
+            ],
+            [
+                { item: "Cálice de Ouro", quantity: 11 },
+            ],
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+        ],
+    },
+    {
+        name: "Jaya", chests: [
+            [
+                { item: "Coroa de Ouro", quantity: 3 },
+                { item: "Poção Média de EXP", quantity: 4 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 4 },
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Bracelete de Ouro", quantity: 1 },
+                { item: "Coroa de Ouro", quantity: 4 },
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 6 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+        ],
+    },
+    {
+        name: "G-7 Marine Base", chests: [
+            [
+                { item: "Cálice de Ouro", quantity: 4 },
+                { item: "Coroa de Ouro", quantity: 1 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Casaco da Marinha", quantity: 1 },
+                { item: "Coroa de Ouro", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+        ],
+    },
+    {
+        name: "Drum Island", chests: [
+            [
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Bracelete Dourado", quantity: 70 },
+                { item: "Poção Média de EXP", quantity: 7 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 3 },
+                { item: "Cálice de Ouro", quantity: 20 },
+                { item: "Poção Grande de EXP", quantity: 2 },
+            ],
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 6 },
+                { item: "Poção Média de EXP", quantity: 4 },
+            ],
+            [
+                { item: "Poção Grande de EXP", quantity: 2 },
+                { item: "Berry de Prata", quantity: 60 },
+            ],
+        ],
+    },
+    {
+        name: "Nanimonai Island", chests: [
+            [
+                { item: "Poção Média de EXP", quantity: 4 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 10 },
+            ],
+        ],
+    },
+    {
+        name: "Nige Hashiru", chests: [
+            [
+                { item: "Poção Média de EXP", quantity: 4 },
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Sake", quantity: 8 },
+                { item: "Poção Média de EXP", quantity: 4 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 25 },
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+        ],
+    },
+    {
+        name: "Alubarna", chests: [
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 4 },
+                { item: "Bracelete Dourado", quantity: 16 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 2 },
+                { item: "Cálice de Ouro", quantity: 5 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 10 },
+            ],
+        ],
+    },
+    {
+        name: "Rainbase", chests: [
+            [
+                { item: "Rubi em Forma de Coração", quantity: 1 },
+                { item: "Coroa de Ouro", quantity: 4 },
+                { item: "Guarda-chuva dos Sand Pirates", quantity: 40 },
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 1 },
+                { item: "Bolsa de Jóias", quantity: 3 },
+                { item: "Cálice de Ouro", quantity: 5 },
+                { item: "Poção Média de EXP", quantity: 5 },
+            ],
+            [
+                { item: "Coroa de Ouro", quantity: 3 },
+                { item: "Bolsa de Jóias", quantity: 10 },
+                { item: "Poção Média de EXP", quantity: 6 },
+            ],
+            [
+                { item: "Bolsa de Jóias", quantity: 2 },
+                { item: "Poção Média de EXP", quantity: 6 },
+            ],
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Poção Grande de EXP", quantity: 2 },
+            ],
+        ],
+    },
+    {
+        name: "Skypiea", chests: [
+            [
+                { item: "Poção de Stamina da GL", quantity: 1 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 5 },
+                { item: "Bolsa de Jóias", quantity: 4 },
+                { item: "Bracelete Dourado", quantity: 10 },
+            ],
+            [
+                { item: "Poção Média de EXP", quantity: 5 },
+                { item: "Bolsa de Jóias", quantity: 2 },
+                { item: "Cálice de Ouro", quantity: 5 },
+            ],
+            [
+                { item: "Poção Grande de EXP", quantity: 1 },
+            ],
+        ],
+    },
+]
+
+const achievements = [
+    {name: "Teste", description: "Testing Achiev", img:"Img/black.png", directions: ["", ""]},
 ]
