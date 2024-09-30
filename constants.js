@@ -45,7 +45,7 @@ const chars = [
 const lastDate = "04-10-2024";
 
 function getRotationChars(rotation) {
-    return chars.filter(char => rotation.includes(char.name));
+    return rotation.map(name => chars.find(char => char.name === name));
 }
 
 const rotationOne = getRotationChars(['Brook', 'Perona', 'Carrot']);
