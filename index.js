@@ -4176,13 +4176,28 @@ function populateTabLeft(){
             const achievImg = document.createElement('div');
             achievImg.style.backgroundImage = `url(${achiev.img})`;
             achievImg.classList.add('achiev-img');
+
+            const achievFrame = document.createElement('img');
+            achievFrame.src = `Img/achievFrame.png`;
+            achievFrame.classList.add('achiev-frame');
+
+            achievImg.appendChild(achievFrame);
     
+            const achievInfo = document.createElement('div');
+            achievInfo.classList.add('achiev-info');
+
             const achievName = document.createElement('p');
             achievName.innerText = achiev.name;
+
+            const achievDesc = document.createElement('p');
+            achievDesc.innerText = achiev.description;
+            achievDesc.classList.add('achiev-info-desc');
     
             container.appendChild(achievDiv);
             achievDiv.appendChild(achievImg);
-            achievDiv.appendChild(achievName);
+            achievDiv.appendChild(achievInfo);
+            achievInfo.appendChild(achievName);
+            achievInfo.appendChild(achievDesc);
     
             achievDiv.addEventListener('click', () => {
                 populateAchievInfo(achiev);
@@ -4227,11 +4242,22 @@ function populateChestInfo(island){
                 itemsContainer.appendChild(itemImg);
             }
         });
-        console.log(index)
         chestDiv.appendChild(itemsContainer);
         container.appendChild(chestDiv);
+
+        chestDiv.addEventListener('click', () => {
+            const chestMap = document.querySelector('.chest-map');
+            const map = maps.find(map => map.name === island.name).mapImgs[index];
+            chestMap.style.backgroundImage = `url(${map})`;
+            chestMap.style.display = 'flex';
+        });
     });
 }
+
+document.querySelector('.map-close-bt').addEventListener('click', () => {
+    const chestMap = document.querySelector('.chest-map');
+    chestMap.style.display = 'none';
+});
 
 function populateAchievInfo(achiev){
     const container = document.querySelector('.achiev-list');

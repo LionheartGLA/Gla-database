@@ -932,6 +932,10 @@ td>a {
     font-family: 'roboto';
 }
 
+#achievs {
+    display: none;
+}
+
 .chest-tab:hover {
     filter: brightness(1.2);
     cursor: pointer;
@@ -991,6 +995,8 @@ td>a {
             #1b120e 75px,
             #1f1510 75px,
             #1f1510 150px);
+            align-items: center;
+            justify-content: center;
 }
 
 .chest-list {
@@ -1003,6 +1009,7 @@ td>a {
     height: fit-content;
     row-gap: 14px;
     width: 100%;
+    align-self: flex-start;
 }
 
 .chest-div {
@@ -1010,6 +1017,32 @@ td>a {
     width: calc(50% - 5px);
     height: 60px;
     align-items: center;
+}
+
+.chest-map {
+    display: none;
+    position: absolute;
+    width: 80%;
+    aspect-ratio: 1.5/1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 3px solid var(--border);
+    border-radius: 10px;
+    background-color: black;
+    background-position: center;
+}
+
+.map-close-bt {
+    background-image: url('Img/closeButton2.png');
+    width: 3.5%;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+.map-close-bt:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
 }
 
 .achiev-item-div {
@@ -1020,6 +1053,7 @@ td>a {
     color: white;
     font-family: 'roboto';
     gap: 8px;
+    font-size: 0.8rem;
 }
 
 .achiev-item-div:hover {
@@ -1048,6 +1082,22 @@ td>a {
     margin-right: 10px;
 }
 
+.achiev-info {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.achiev-info>p{
+    margin: 0;
+}
+
+.achiev-info-desc {
+    font-size: 0.6rem;
+    opacity: 0.6;
+}
+
 .achiev-img {
     width: 40px;
     height: 40px;
@@ -1057,6 +1107,14 @@ td>a {
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 8px;
+    position: relative;
+}
+
+.achiev-frame {
+    width: 46px;
+    height: 46px;
+    position: absolute;
+    translate: -5% -6%;
 }
 
 .achiev-list {
@@ -1072,6 +1130,12 @@ td>a {
 
 .achiev-name {
     font-size: 1.5rem;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.achiev-desc {
+    margin: 5px;
 }
 
 .items-container {
