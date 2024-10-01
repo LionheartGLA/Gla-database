@@ -283,7 +283,8 @@ body {
 .food-bt:hover>.bt-info,
 .info-space:hover>.bt-info-space,
 .chest-bt:hover>.bt-info,
-.wb-bt:hover>.bt-info {
+.wb-bt:hover>.bt-info,
+.track-bt:hover>.bt-info {
     height: 20px;
     width: fit-content;
     position: absolute;
@@ -338,6 +339,13 @@ body {
     height: 34px;
     width: 34px;
     display: none;
+}
+
+.track-bt {
+    background-image: url('Img/trackButton.png');
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 34px;
 }
 
 .food-container {
@@ -995,8 +1003,8 @@ td>a {
             #1b120e 75px,
             #1f1510 75px,
             #1f1510 150px);
-            align-items: center;
-            justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .chest-list {
@@ -1061,7 +1069,7 @@ td>a {
     cursor: pointer;
 }
 
-.achiev-item-div.selected{
+.achiev-item-div.selected {
     background-color: var(--selected);
 }
 
@@ -1089,7 +1097,7 @@ td>a {
     justify-content: center;
 }
 
-.achiev-info>p{
+.achiev-info>p {
     margin: 0;
 }
 
@@ -1163,7 +1171,8 @@ td>a {
 .dima-bt:hover,
 .food-bt:hover,
 .chest-bt:hover,
-.wb-bt:hover {
+.wb-bt:hover,
+.track-bt:hover {
     cursor: pointer;
     filter: brightness(1.5);
 }

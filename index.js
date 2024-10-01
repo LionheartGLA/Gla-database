@@ -3899,6 +3899,10 @@ document.querySelector('.dima-bt').addEventListener('click', () => {
     window.location.replace("dima.html");
 })
 
+document.querySelector('.track-bt').addEventListener('click', () => {
+    window.location.replace("tracklist.html");
+})
+
 document.addEventListener('keydown', function (event) {
     if (event.code === 'Space') {
         resetAll()
