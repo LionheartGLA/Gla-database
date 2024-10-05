@@ -494,14 +494,6 @@ body {
     max-width: 20px;
 }
 
-.rank-players {
-    min-width: 40%;
-}
-
-.rank-time {
-    min-width: 35%;
-}
-
 .rank-right {
     max-width: 13px;
 }
@@ -509,7 +501,7 @@ body {
 .wb-rank {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: scroll;
     height: 100%;
     color: white;
     font-family: 'roboto';
@@ -523,18 +515,6 @@ tr {
 td:first-child {
     flex: none;
     width: 15px !important;
-}
-
-.td-players {
-    width: 41.5%;
-}
-
-.td-wave {
-    width: 12.8%;
-}
-
-.td-time {
-    width: 36.5%;
 }
 
 td {

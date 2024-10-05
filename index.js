@@ -3775,8 +3775,6 @@ function createRankingLine(entry) {
     tdPlayers.classList.add('td-players');
     let tdWave = document.createElement('td');
     tdWave.classList.add('td-wave');
-    let tdTime = document.createElement('td');
-    tdTime.classList.add('td-time');
 
     tdRank.textContent = entry.rank;
     entry.players.forEach(player => {
@@ -3786,12 +3784,16 @@ function createRankingLine(entry) {
     });
     
     tdWave.textContent = entry.wave;
-    tdTime.textContent = entry.time;
 
     tr.appendChild(tdRank);
     tr.appendChild(tdPlayers);
     tr.appendChild(tdWave);
-    tr.appendChild(tdTime);
+    if(selectedWb === "Marineford"){
+        let tdTime = document.createElement('td');
+        tdTime.classList.add('td-time');
+        tdTime.textContent = entry.time;
+        tr.appendChild(tdTime);
+    }
 
     document.querySelector('.wb-rank').appendChild(tr);
 }
@@ -3841,8 +3843,10 @@ function populateWb(){
             document.querySelector('.wb-date>p').innerHTML = worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].date;
             if(wb.name === "Marineford"){
                 document.getElementById('wave-dmg-text').innerHTML = "Wave";
+                document.querySelector('.rank-time').style.display = "flex";
             } else {
                 document.getElementById('wave-dmg-text').innerHTML = "Dano";
+                document.querySelector('.rank-time').style.display = "none";
             }
         })
 

@@ -97,7 +97,6 @@ body {
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    border-radius: 0 0 10px 10px;
 }
 
 .list-item-div {
@@ -105,9 +104,10 @@ body {
     width: 100%;
     height: 50px;
     position: relative;
+    overflow: hidden;
 }
 
-.list-item-div:hover>.delete-bt {
+.list-item-div:hover>.options {
     display: flex;
 }
 
@@ -174,6 +174,10 @@ body {
 .global-item {
     display: flex;
     flex-direction: column;
+}
+
+.global-item>img {
+    margin-top: -10px;
 }
 
 .account {
@@ -288,24 +292,48 @@ body {
     margin-bottom: 10px;
 }
 
-.delete-bt {
+.options {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: var(--red);
     right: 0;
     border-radius: 100px;
-    border: 1px solid var(--border);
     display: none;
+    flex-direction: column;
+    height: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .delete-bt>p {
     margin-bottom: 2px;
 }
 
-.delete-bt:hover {
+.delete-bt {
+    width: 10px;
+    height: 10px;
+    background-color: var(--red);
+    border: 1px solid var(--border);
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    display: flex;
+}
+
+.updown-bt {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--border);
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    display: flex;
+}
+
+.updown-bt>span {
+    scale: 0.5;
+}
+
+.delete-bt:hover,
+.updown-bt:hover {
     filter: brightness(1.3);
     cursor: pointer;
     display: flex;

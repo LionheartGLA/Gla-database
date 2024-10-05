@@ -173,9 +173,24 @@ function populateList() {
             globalDiv.appendChild(globalItemDiv);
         });
 
+        const options = document.createElement('div');
+        options.className = 'options';
+
         const deleteBt = document.createElement('div');
         deleteBt.className = 'delete-bt';
-        deleteBt.innerHTML = '<p>-</p>'
+        deleteBt.innerHTML = '<p>-</p>';
+
+        const upBt = document.createElement('div');
+        upBt.className = 'updown-bt';
+        upBt.innerHTML = '<span class="material-symbols-outlined">keyboard_arrow_up</span>';
+
+        const downBt = document.createElement('div');
+        downBt.className = 'updown-bt';
+        downBt.innerHTML = '<span class="material-symbols-outlined">keyboard_arrow_down</span>';
+
+        options.appendChild(deleteBt);
+        options.appendChild(upBt);
+        options.appendChild(downBt);
 
         deleteBt.addEventListener('click', () => {
             const index = accounts.findIndex(e => e.name === account.name);
@@ -186,7 +201,25 @@ function populateList() {
             }
         });
 
-        listItemDiv.appendChild(deleteBt);
+        upBt.addEventListener('click', () => {
+            const index = accounts.findIndex(e => e.name === account.name);
+            if (index > 0) {
+                [accounts[index], accounts[index - 1]] = [accounts[index - 1], accounts[index]];
+                saveAccounts();
+                populateList();
+            }
+        });
+
+        downBt.addEventListener('click', () => {
+            const index = accounts.findIndex(e => e.name === account.name);
+            if (index < accounts.length - 1) {
+                [accounts[index], accounts[index + 1]] = [accounts[index + 1], accounts[index]];
+                saveAccounts();
+                populateList();
+            }
+        });
+
+        listItemDiv.appendChild(options);
         listItemDiv.appendChild(accountDiv);
         listItemDiv.appendChild(raidDiv);
         listItemDiv.appendChild(wantedDiv);
@@ -233,9 +266,7 @@ document.querySelector('#reset-bt').addEventListener('click', () => {
         account.wanted = 0;
         account.boss = 0;
         account.prove = 0;
-        account.global.forEach(global => {
-            global = false;
-        });
+        account.global = [false, false, false, false, false];
     });
     populateList();
     saveAccounts();

@@ -289,7 +289,66 @@ const worldBosses = [
         ]
     },
     {
-        name: "Byakko", img: "Img/Wb/mihawk.png", dates: [
+        name: "Byakko", img: "Img/Wb/byakko.png", dates: [
+            {
+                date: "04/10/2024",
+                ranking: [
+                    {
+                        "rank": 1,
+                        "players": ["Soyeon", "Nayeon", "Ayatsu", "Pocotojuliano"],
+                        "wave": 8580794,
+                    },
+                    {
+                        "rank": 2,
+                        "players": ["Vastayas", "Light", "Pocotosilverio", "Bello O Traidor"],
+                        "wave": 8553450,
+                    },
+                    {
+                        "rank": 3,
+                        "players": ["Taca Maeno", "Wisce", "Raingard", "Pykezin"],
+                        "wave": 8540998,
+                    },
+                    {
+                        "rank": 4,
+                        "players": ["The Lions", "Falconns", "Miwa San", "Embu"],
+                        "wave": 8529768,
+                    },
+                    {
+                        "rank": 5,
+                        "players": ["Lerc", "Flokin", "Sudden", "Hakai Satsu"],
+                        "wave": 8529240,
+                    },
+                    {
+                        "rank": 6,
+                        "players": ["Markrt", "Lenhador Calvo", "Reyna", "Weakling"],
+                        "wave": 8495501,
+                    },
+                    {
+                        "rank": 7,
+                        "players": ["Yumi", "Yami Hikari", "Pandao", "Fardos El Mago"],
+                        "wave": 8483325,
+                    },
+                    {
+                        "rank": 8,
+                        "players": ["XxhenryxX", "Guiron", "Pinheirooo", "Koyy"],
+                        "wave": 8438410,
+                    },
+                    {
+                        "rank": 9,
+                        "players": ["Ayver O Toxico", "Haerin", "Dark Nth", "Celin Nikeboy"],
+                        "wave": 8430951,
+                    },
+                    {
+                        "rank": 10,
+                        "players": ["Tufos", "Dantaz", "D I P I R O N O", "Dark Nightmare"],
+                        "wave": 8412245,
+                    },
+                ]
+            },
+        ]
+    },
+    {
+        name: "Mihawk", img: "Img/Wb/mihawk.png", dates: [
             {
                 date: "A ser adicionado",
                 ranking: [
