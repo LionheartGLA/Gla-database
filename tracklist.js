@@ -3,11 +3,13 @@ const list = document.querySelector('#list');
 var storedAccounts = localStorage.getItem('accounts');
 var accounts = storedAccounts ? JSON.parse(storedAccounts) : [];
 
-if(accounts[0].coliseum === undefined){
-    accounts.forEach(account => {
-        account.coliseum = [false,false];
-    });
-    saveAccounts();
+if(accounts[0] !== undefined){
+    if(accounts[0].coliseum === undefined){
+        accounts.forEach(account => {
+            account.coliseum = [false,false];
+        });
+        saveAccounts();
+    }
 }
 
 function populateList() {
