@@ -3,6 +3,14 @@ const list = document.querySelector('#list');
 var storedAccounts = localStorage.getItem('accounts');
 var accounts = storedAccounts ? JSON.parse(storedAccounts) : [];
 
+if(Array.isArray(accounts)){
+    accounts.forEach(account => {
+        account.coliseum = [false, false];
+    });
+
+    localStorage.setItem('accounts', JSON.stringify(accounts));
+}
+
 function populateList() {
     list.innerHTML = '';
 
@@ -18,8 +26,9 @@ function populateList() {
         accountDiv.appendChild(accountName);
 
         const raidDiv = document.createElement('div');
-        raidDiv.className = 'list-item raid';
+        raidDiv.className = 'list-item';
         const raidCheckbox = document.createElement('input');
+        raidCheckbox.classList.add('checkbox');
         raidCheckbox.type = 'checkbox';
         raidCheckbox.id = 'raid';
         raidCheckbox.checked = account.raid;
@@ -30,7 +39,7 @@ function populateList() {
         })
 
         const wantedDiv = document.createElement('div');
-        wantedDiv.className = 'list-item wanted';
+        wantedDiv.className = 'list-item';
         const wantedDown = document.createElement('div');
         wantedDown.className = 'number-bt';
         wantedDown.innerHTML = '<span class="material-symbols-outlined">arrow_drop_down</span>';
@@ -70,7 +79,7 @@ function populateList() {
         wantedDiv.appendChild(wantedUp);
 
         const bossDiv = document.createElement('div');
-        bossDiv.className = 'list-item boss';
+        bossDiv.className = 'list-item';
         const bossDown = document.createElement('div');
         bossDown.className = 'number-bt';
         bossDown.innerHTML = '<span class="material-symbols-outlined">arrow_drop_down</span>';
@@ -111,7 +120,7 @@ function populateList() {
         bossDiv.appendChild(bossUp);
 
         const proveDiv = document.createElement('div');
-        proveDiv.className = 'list-item prove';
+        proveDiv.className = 'list-item';
         const proveDown = document.createElement('div');
         proveDown.className = 'number-bt';
         proveDown.innerHTML = '<span class="material-symbols-outlined">arrow_drop_down</span>';
@@ -152,7 +161,7 @@ function populateList() {
         proveDiv.appendChild(proveUp);
 
         const globalDiv = document.createElement('div');
-        globalDiv.className = 'list-item global';
+        globalDiv.className = 'list-item';
         
         const globalItems = ['Quiz', 'Count', 'Race', 'Memory', 'Deathmatch'];
         globalItems.forEach((item, index) => {
@@ -162,6 +171,7 @@ function populateList() {
             img.src = `Img/Items/${item}.png`;
             globalItemDiv.appendChild(img);
             const checkbox = document.createElement('input');
+            checkbox.classList.add('checkbox');
             checkbox.type = 'checkbox';
             checkbox.id = item.toLowerCase();
             checkbox.checked = account.global[index];
@@ -171,6 +181,33 @@ function populateList() {
             })
             globalItemDiv.appendChild(checkbox);
             globalDiv.appendChild(globalItemDiv);
+        });
+
+        const coliseumDiv = document.createElement('div');
+        coliseumDiv.className = 'list-item coliseum';
+        
+        const coliseumItems = ['Coliseum', 'One Man Army'];
+        coliseumItems.forEach((item, index) => {
+            const coliseumItemDiv = document.createElement('div');
+            coliseumItemDiv.className = 'coliseum-item';
+            const img = document.createElement('div');
+            if(index === 0){
+                img.innerHTML = `<span class="material-symbols-outlined">groups</span>`
+            }else{
+                img.innerHTML = `<span class="material-symbols-outlined">person</span>`
+            }
+            coliseumItemDiv.appendChild(img);
+            const checkbox = document.createElement('input');
+            checkbox.classList.add('checkbox');
+            checkbox.type = 'checkbox';
+            checkbox.id = item.toLowerCase();
+            checkbox.checked = account.coliseum[index];
+            checkbox.addEventListener('change', () => {
+                account.coliseum[index] = checkbox.checked;
+                saveAccounts();
+            })
+            coliseumItemDiv.appendChild(checkbox);
+            coliseumDiv.appendChild(coliseumItemDiv);
         });
 
         const options = document.createElement('div');
@@ -226,6 +263,7 @@ function populateList() {
         listItemDiv.appendChild(bossDiv);
         listItemDiv.appendChild(proveDiv);
         listItemDiv.appendChild(globalDiv);
+        listItemDiv.appendChild(coliseumDiv);
 
         list.appendChild(listItemDiv);
     });
@@ -253,7 +291,7 @@ document.querySelector('#add-bt').addEventListener('click', ()=> {
 document.querySelector('#save-bt').addEventListener('click', () => {
     const modal = document.querySelector('.modal');
     const input = document.querySelector('#modal-input');
-    accounts.push({name: input.value, raid: false, wanted: 0, boss: 0, prove: 0, global: [false,false,false,false,false]});
+    accounts.push({name: input.value, raid: false, wanted: 0, boss: 0, prove: 0, global: [false,false,false,false,false], coliseum:[false,false]});
     input.value = '';
     populateList();
     saveAccounts();
@@ -267,6 +305,7 @@ document.querySelector('#reset-bt').addEventListener('click', () => {
         account.boss = 0;
         account.prove = 0;
         account.global = [false, false, false, false, false];
+        account.coliseum = [false, false];
     });
     populateList();
     saveAccounts();
