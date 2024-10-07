@@ -302,7 +302,7 @@ body {
 
 .options {
     position: absolute;
-    right: 0;
+    left: 0;
     border-radius: 100px;
     display: none;
     flex-direction: column;
@@ -316,8 +316,8 @@ body {
 }
 
 .delete-bt {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     background-color: var(--red);
     border: 1px solid var(--border);
     align-items: center;
@@ -327,8 +327,8 @@ body {
 }
 
 .updown-bt {
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border: 1px solid var(--border);
     align-items: center;
     justify-content: center;
