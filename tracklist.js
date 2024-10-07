@@ -3,12 +3,11 @@ const list = document.querySelector('#list');
 var storedAccounts = localStorage.getItem('accounts');
 var accounts = storedAccounts ? JSON.parse(storedAccounts) : [];
 
-if(Array.isArray(accounts)){
+if(accounts[0].coliseum === undefined){
     accounts.forEach(account => {
-        account.coliseum = [false, false];
+        account.coliseum = [false,false];
     });
-
-    localStorage.setItem('accounts', JSON.stringify(accounts));
+    saveAccounts();
 }
 
 function populateList() {
@@ -291,7 +290,7 @@ document.querySelector('#add-bt').addEventListener('click', ()=> {
 document.querySelector('#save-bt').addEventListener('click', () => {
     const modal = document.querySelector('.modal');
     const input = document.querySelector('#modal-input');
-    accounts.push({name: input.value, raid: false, wanted: 0, boss: 0, prove: 0, global: [false,false,false,false,false], coliseum:[false,false]});
+    accounts.push({name: input.value, raid: false, wanted: 0, boss: 0, prove: 0, global: [false,false,false,false,false], coliseum: [false,false]});
     input.value = '';
     populateList();
     saveAccounts();
