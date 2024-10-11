@@ -168,4 +168,4 @@ Object.entries(filterButtons).forEach(([filter, button]) => {
 });
 
 window.addEventListener("load", addCharToList);
-document.querySelector('.rot-bt').addEventListener('click', () => window.location.replace('/'));
+document.querySelector('.rot-bt').addEventListener('click', () => window.location.replace('/Gla-Database/'));

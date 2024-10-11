@@ -227,9 +227,9 @@ selectChar(selectedChar);
 updateCharacterDisplay();
 
 document.querySelector('.rot-bt').addEventListener('click', () => {
-    window.location.replace('/');
+    window.location.replace('/Gla-Database/');
 })
 
 document.querySelector('.back').addEventListener('click', () => {
-    window.location.replace('/');
+    window.location.replace('/Gla-Database/');
 })
