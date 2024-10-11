@@ -3734,8 +3734,6 @@ window.addEventListener('popstate', () => {
     setTab(tab);
 });
 
-setTab('memory')
-
 function createColorButtons(squareIndex) {
     return colors.map(color => {
         return `<img class="color ${color}${squareIndex}" src="Img/${color}.png" alt="${color}">`;
