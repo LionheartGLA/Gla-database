@@ -169,7 +169,7 @@ function populateList() {
             const globalItemDiv = document.createElement('div');
             globalItemDiv.className = 'global-item';
             const img = document.createElement('img');
-            img.src = `Img/Items/${item}.png`;
+            img.src = `../Img/Items/${item}.png`;
             globalItemDiv.appendChild(img);
             const checkbox = document.createElement('input');
             checkbox.classList.add('checkbox');

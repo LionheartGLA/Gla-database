@@ -227,9 +227,9 @@ selectChar(selectedChar);
 updateCharacterDisplay();
 
 document.querySelector('.rot-bt').addEventListener('click', () => {
-    window.location.replace('index.html')
+    window.location.replace('/');
 })
 
 document.querySelector('.back').addEventListener('click', () => {
-    window.location.replace('index.html')
+    window.location.replace('/');
 })

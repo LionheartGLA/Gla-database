@@ -52,7 +52,7 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url('Img/background.png');
+    background-image: url('../Img/background.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -146,7 +146,7 @@ body {
 }
 
 .bt-div {
-    background-image: url("Img/button.png");
+    background-image: url("../Img/button.png");
     width: 120px;
     height: 38px;
     display: flex;
@@ -176,7 +176,7 @@ body {
 }
 
 .square {
-    background-image: url("Img/black.png");
+    background-image: url("../Img/black.png");
     height: 200px;
     width: 200px;
     display: flex;
@@ -266,7 +266,7 @@ body {
 }
 
 .rot-bt {
-    background-image: url('Img/rotButton.png');
+    background-image: url('../Img/rotButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -309,7 +309,7 @@ body {
 }
 
 .dima-bt {
-    background-image: url('Img/dimaButton.png');
+    background-image: url('../Img/dimaButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -320,21 +320,21 @@ body {
 }
 
 .food-bt {
-    background-image: url('Img/foodButton.png');
+    background-image: url('../Img/foodButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
 }
 
 .wb-bt {
-    background-image: url('Img/wbButton.png');
+    background-image: url('../Img/wbButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
 }
 
 .chest-bt {
-    background-image: url('Img/chestButton.png');
+    background-image: url('../Img/chestButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -342,7 +342,7 @@ body {
 }
 
 .track-bt {
-    background-image: url('Img/trackButton.png');
+    background-image: url('../Img/trackButton.png');
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
@@ -350,7 +350,7 @@ body {
 
 .food-container {
     position: absolute;
-    background-image: url("Img/foodContainer.png");
+    background-image: url("../Img/foodContainer.png");
     z-index: 10;
     height: 400px;
     aspect-ratio: 16/9;
@@ -359,7 +359,7 @@ body {
 
 .wb-container {
     position: absolute;
-    background-image: url("Img/wbContainer.png");
+    background-image: url("../Img/wbContainer.png");
     z-index: 10;
     height: 400px;
     aspect-ratio: 16/9;
@@ -368,7 +368,7 @@ body {
 
 .chest-container {
     position: absolute;
-    background-image: url("Img/TabBackground.png");
+    background-image: url("../Img/TabBackground.png");
     z-index: 10;
     height: 530px;
     aspect-ratio: 1.32/1;
@@ -396,7 +396,7 @@ body {
 }
 
 .food-bg {
-    background-image: url('Img/kitchen.gif');
+    background-image: url('../Img/kitchen.gif');
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
@@ -1021,7 +1021,7 @@ td>a {
 }
 
 .map-close-bt {
-    background-image: url('Img/closeButton2.png');
+    background-image: url('../Img/closeButton2.png');
     width: 3.5%;
     position: absolute;
     top: 2%;
@@ -1059,7 +1059,7 @@ td>a {
 }
 
 .chest-img {
-    background-image: url('Img/closedChest.png');
+    background-image: url('../Img/closedChest.png');
     width: 60px;
     height: 60px;
     min-width: 60px;
@@ -1175,7 +1175,7 @@ td>a {
 
 .chest {
     display: flex;
-    background-image: url('Img/chest.png');
+    background-image: url('../Img/chest.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

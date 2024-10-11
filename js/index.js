@@ -1,4 +1,4 @@
-let tab = 'memory'
+let tab = 'memory';
 
 const memoryDiv = document.querySelector('.main-memory');
 const quizDiv = document.querySelector('.main-quiz');
@@ -3635,7 +3635,13 @@ const answers = [
         "text": "Arlong era o capitão dos Piratas do Sol e tinha a maior recompensa do East Blue antes de ser derrotado pelo Monkey D. Luffy.",
         "type": "false"
     },
-]
+];
+
+window.addEventListener('load', () => {
+    const hash = window.location.hash.substring(1) || "memory";
+    tab = hash;
+    setTab(tab);
+});
 
 function updateScale(div) {
     const vpWidth = window.innerWidth;
@@ -3710,7 +3716,7 @@ function setTab(tabName) {
         quizDiv.style.display = 'none';
         memoryBt.classList.add('selected');
         quizBt.classList.remove('selected');
-        background.style.backgroundImage = "url('Img/background.png')";
+        background.style.backgroundImage = "url('../Img/background.png')";
     } else if (tabName === 'quiz') {
         quizDiv.style.display = 'flex';
         memoryDiv.style.display = 'none';
@@ -3718,13 +3724,21 @@ function setTab(tabName) {
         memoryBt.classList.remove('selected');
         background.style.backgroundImage = "none";
     }
+    const newUrl = `#${tabName}`;
+    history.pushState(null, '', newUrl);
 }
+
+window.addEventListener('popstate', () => {
+    const hash = window.location.hash.substring(1) || "memory";
+    tab = hash;
+    setTab(tab);
+});
 
 setTab('memory')
 
 function createColorButtons(squareIndex) {
     return colors.map(color => {
-        return `<img class="color ${color}${squareIndex}" src="Img/${color}.png" alt="${color}">`;
+        return `<img class="color ${color}${squareIndex}" src="../Img/${color}.png" alt="${color}">`;
     }).join('');
 }
 
@@ -3745,12 +3759,12 @@ function createSquares() {
 createSquares();
 
 function setColor(square, color) {
-    square.style.backgroundImage = `url(Img/${color}.png)`;
+    square.style.backgroundImage = `url(../Img/${color}.png)`;
 }
 
 function resetAll() {
     document.querySelectorAll('.square').forEach(square => {
-        square.style.backgroundImage = `url(Img/black.png)`;
+        square.style.backgroundImage = `url(../Img/black.png)`;
     });
 }
 
@@ -3782,13 +3796,13 @@ function createRankingLine(entry) {
         playerLink.textContent = player;
         tdPlayers.appendChild(playerLink);
     });
-    
+
     tdWave.textContent = entry.wave;
 
     tr.appendChild(tdRank);
     tr.appendChild(tdPlayers);
     tr.appendChild(tdWave);
-    if(selectedWb === "Marineford"){
+    if (selectedWb === "Marineford") {
         let tdTime = document.createElement('td');
         tdTime.classList.add('td-time');
         tdTime.textContent = entry.time;
@@ -3808,7 +3822,7 @@ function populateRanking(wbRank) {
 populateRanking(worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].ranking);
 
 document.querySelector('#wb-date-left').addEventListener('click', () => {
-    if(selectedWbDate >= 0 && selectedWbDate < (worldBosses.find(wb => wb.name === selectedWb).dates.length - 1)){
+    if (selectedWbDate >= 0 && selectedWbDate < (worldBosses.find(wb => wb.name === selectedWb).dates.length - 1)) {
         selectedWbDate += 1;
         populateRanking(worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].ranking);
         document.querySelector('.wb-date>p').innerHTML = worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].date;
@@ -3816,14 +3830,14 @@ document.querySelector('#wb-date-left').addEventListener('click', () => {
 });
 
 document.querySelector('#wb-date-right').addEventListener('click', () => {
-    if(selectedWbDate > 0 && selectedWbDate <= (worldBosses.find(wb => wb.name === selectedWb).dates.length - 1)){
+    if (selectedWbDate > 0 && selectedWbDate <= (worldBosses.find(wb => wb.name === selectedWb).dates.length - 1)) {
         selectedWbDate -= 1;
         populateRanking(worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].ranking);
         document.querySelector('.wb-date>p').innerHTML = worldBosses.find(wb => wb.name === selectedWb).dates[selectedWbDate].date;
     }
 });
 
-function populateWb(){
+function populateWb() {
     const wbList = document.querySelector('.wb-list');
     wbList.innerHTML = '';
 
@@ -3841,7 +3855,7 @@ function populateWb(){
             selectedWbDate = 0;
             populateRanking(worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].ranking);
             document.querySelector('.wb-date>p').innerHTML = worldBosses.find(element => element.name === selectedWb).dates[selectedWbDate].date;
-            if(wb.name === "Marineford"){
+            if (wb.name === "Marineford") {
                 document.getElementById('wave-dmg-text').innerHTML = "Wave";
                 document.querySelector('.rank-time').style.display = "flex";
             } else {
@@ -4041,7 +4055,7 @@ const inputField = document.querySelector('.ing-input>input');
 inputField.addEventListener('change', () => {
     inputField.value = inputField.value.replace(/[^0-9]/g, '');
     var number = parseInt(inputField.value)
-    if (number < 1){
+    if (number < 1) {
         inputField.value = 1;
     }
 
@@ -4107,7 +4121,7 @@ function calcIngredients() {
                 const ingCost = document.createElement('p');
                 const ingBerryImg = document.createElement('div');
                 ingBerryImg.classList.add('ing-berry');
-                ingBerryImg.style.backgroundImage = "url('Img/berry.png')";
+                ingBerryImg.style.backgroundImage = "url('../Img/berry.png')";
 
                 const currentCost = ingredientDetails.cost * (quantity * multiplier);
                 ingCost.classList.add('ing-cost');
@@ -4148,23 +4162,23 @@ function calcIngredients() {
 
 calcIngredients();
 
-function populateTabLeft(){
+function populateTabLeft() {
     const container = document.querySelector('.chests-left');
     container.innerHTML = '';
 
-    if(chestSelectedTab === "Chests"){
+    if (chestSelectedTab === "Chests") {
         document.querySelector('.achiev-list').style.display = 'none';
         document.querySelector('.chest-list').style.display = 'flex';
         islands.forEach(island => {
             const islandDiv = document.createElement('div');
             islandDiv.classList.add('chest-item-div');
-    
+
             const islandName = document.createElement('p');
             islandName.innerText = island.name;
-    
+
             container.appendChild(islandDiv);
             islandDiv.appendChild(islandName);
-    
+
             islandDiv.addEventListener('click', () => {
                 populateChestInfo(island);
                 document.querySelectorAll('.chest-item-div').forEach(div => {
@@ -4173,7 +4187,7 @@ function populateTabLeft(){
                 islandDiv.classList.add('selected');
             });
         });
-    } else if(chestSelectedTab === "Achievs"){
+    } else if (chestSelectedTab === "Achievs") {
         document.querySelector('.chest-list').innerHTML = '';
         document.querySelector('.chest-list').style.display = 'none';
         document.querySelector('.achiev-list').style.display = 'flex';
@@ -4186,11 +4200,11 @@ function populateTabLeft(){
             achievImg.classList.add('achiev-img');
 
             const achievFrame = document.createElement('img');
-            achievFrame.src = `Img/achievFrame.png`;
+            achievFrame.src = `../Img/achievFrame.png`;
             achievFrame.classList.add('achiev-frame');
 
             achievImg.appendChild(achievFrame);
-    
+
             const achievInfo = document.createElement('div');
             achievInfo.classList.add('achiev-info');
 
@@ -4200,13 +4214,13 @@ function populateTabLeft(){
             const achievDesc = document.createElement('p');
             achievDesc.innerText = achiev.description;
             achievDesc.classList.add('achiev-info-desc');
-    
+
             container.appendChild(achievDiv);
             achievDiv.appendChild(achievImg);
             achievDiv.appendChild(achievInfo);
             achievInfo.appendChild(achievName);
             achievInfo.appendChild(achievDesc);
-    
+
             achievDiv.addEventListener('click', () => {
                 populateAchievInfo(achiev);
                 document.querySelectorAll('.achiev-item-div').forEach(div => {
@@ -4218,7 +4232,7 @@ function populateTabLeft(){
     }
 }
 
-function populateChestInfo(island){
+function populateChestInfo(island) {
     const container = document.querySelector('.chest-list');
     container.innerHTML = '';
 
@@ -4235,18 +4249,18 @@ function populateChestInfo(island){
         itemsContainer.classList.add('items-container');
         chest.forEach(e => {
             const itemData = items.find(element => element.name === e.item);
-            if(itemData){
+            if (itemData) {
                 const itemImg = document.createElement('div');
                 itemImg.style.backgroundImage = `url(${itemData.img})`;
                 itemImg.classList.add('item-img');
-    
-                if(e.quantity > 1){
+
+                if (e.quantity > 1) {
                     const itemQuantity = document.createElement('p');
                     itemQuantity.innerText = e.quantity;
                     itemQuantity.classList.add('item-qntd');
                     itemImg.appendChild(itemQuantity);
                 }
-    
+
                 itemsContainer.appendChild(itemImg);
             }
         });
@@ -4267,7 +4281,7 @@ document.querySelector('.map-close-bt').addEventListener('click', () => {
     chestMap.style.display = 'none';
 });
 
-function populateAchievInfo(achiev){
+function populateAchievInfo(achiev) {
     const container = document.querySelector('.achiev-list');
     container.innerHTML = '';
 
@@ -4309,7 +4323,7 @@ document.getElementById('ing-input-bt-4').addEventListener('click', () => {
 });
 
 document.querySelector('#chests').addEventListener('click', () => {
-    if(chestSelectedTab !== "Chest"){
+    if (chestSelectedTab !== "Chest") {
         chestSelectedTab = "Chests";
         document.querySelector('#achievs').classList.remove('selected');
         document.querySelector('#chests').classList.add('selected');
@@ -4320,7 +4334,7 @@ document.querySelector('#chests').addEventListener('click', () => {
 })
 
 document.querySelector('#achievs').addEventListener('click', () => {
-    if(chestSelectedTab !== "Achievs"){
+    if (chestSelectedTab !== "Achievs") {
         chestSelectedTab = "Achievs";
         document.querySelector('#achievs').classList.add('selected');
         document.querySelector('#chests').classList.remove('selected');
