@@ -3716,7 +3716,7 @@ function setTab(tabName) {
         quizDiv.style.display = 'none';
         memoryBt.classList.add('selected');
         quizBt.classList.remove('selected');
-        background.style.backgroundImage = "url('../Img/background.png')";
+        background.style.backgroundImage = "url('Img/background.png')";
     } else if (tabName === 'quiz') {
         quizDiv.style.display = 'flex';
         memoryDiv.style.display = 'none';
@@ -3738,7 +3738,7 @@ setTab('memory')
 
 function createColorButtons(squareIndex) {
     return colors.map(color => {
-        return `<img class="color ${color}${squareIndex}" src="../Img/${color}.png" alt="${color}">`;
+        return `<img class="color ${color}${squareIndex}" src="Img/${color}.png" alt="${color}">`;
     }).join('');
 }
 
@@ -3759,12 +3759,12 @@ function createSquares() {
 createSquares();
 
 function setColor(square, color) {
-    square.style.backgroundImage = `url(../Img/${color}.png)`;
+    square.style.backgroundImage = `url(Img/${color}.png)`;
 }
 
 function resetAll() {
     document.querySelectorAll('.square').forEach(square => {
-        square.style.backgroundImage = `url(../Img/black.png)`;
+        square.style.backgroundImage = `url(Img/black.png)`;
     });
 }
 
@@ -4121,7 +4121,7 @@ function calcIngredients() {
                 const ingCost = document.createElement('p');
                 const ingBerryImg = document.createElement('div');
                 ingBerryImg.classList.add('ing-berry');
-                ingBerryImg.style.backgroundImage = "url('../Img/berry.png')";
+                ingBerryImg.style.backgroundImage = "url('Img/berry.png')";
 
                 const currentCost = ingredientDetails.cost * (quantity * multiplier);
                 ingCost.classList.add('ing-cost');
@@ -4200,7 +4200,7 @@ function populateTabLeft() {
             achievImg.classList.add('achiev-img');
 
             const achievFrame = document.createElement('img');
-            achievFrame.src = `../Img/achievFrame.png`;
+            achievFrame.src = `Img/achievFrame.png`;
             achievFrame.classList.add('achiev-frame');
 
             achievImg.appendChild(achievFrame);

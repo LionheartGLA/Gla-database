@@ -87,7 +87,7 @@ html, body {
 
 .chest {
     display: flex;
-    background-image: url('../Img/chest.png');
+    background-image: url('Img/chest.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

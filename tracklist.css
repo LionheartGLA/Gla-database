@@ -144,7 +144,7 @@ body {
 #wanted-slider,
 #prove-slider,
 #boss-slider {
-    background-image: url('../Img/wantedSlider.png');
+    background-image: url('Img/wantedSlider.png');
     width: 240px;
     height: 11px;
     display: flex;
@@ -218,7 +218,7 @@ body {
 #boss-slider-filled {
     display: flex;
     position: absolute;
-    background-image: url('../Img/wantedSliderFilled.png');
+    background-image: url('Img/wantedSliderFilled.png');
     height: 11px;
     z-index: 1;
 }
