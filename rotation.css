@@ -83,6 +83,7 @@ html, body {
     align-items: center;
     justify-content: center;
     grid-area: current;
+    z-index: 1;
 }
 
 .chest {
@@ -96,6 +97,60 @@ html, body {
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.specialRot::before {
+    content: "";
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    mask-image: url('Img/chest.png');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background: conic-gradient(
+        from var(--angle),
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+    );
+    animation: 3s spin linear infinite;
+    filter: blur(1rem);
+    transform: scale(1.06);
+    translate: 1px 0;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+.specialRot>div {
+    inset: 0;
+    width: 66px;
+    height: 68px;
+    translate: -7% -7%;
 }
 
 .rotation-img {

@@ -4357,3 +4357,4 @@ function populateRotation(div, rotation) {
 
 populateRotation('.rotationOne', rotationOne);
 populateRotation('.rotationTwo', rotationTwo);
+populateRotation('.specialRot', specialRot);
