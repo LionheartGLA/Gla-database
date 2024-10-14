@@ -4345,14 +4345,17 @@ document.querySelector('#achievs').addEventListener('click', () => {
 
 function populateRotation(div, rotation) {
     const container = document.querySelector(div);
-
+    container.style.display = 'none';
     rotation.forEach((char, index) => {
-        const imgElement = document.createElement('div');
-        imgElement.classList.add('rotation-img');
-        imgElement.classList.add(`rot-${index}`);
-        imgElement.style.backgroundImage = `url(${char.image})`;
-        container.appendChild(imgElement);
-    })
+        if (char) {
+            container.style.display = 'flex';
+            const imgElement = document.createElement('div');
+            imgElement.classList.add('rotation-img');
+            imgElement.classList.add(`rot-${index}`);
+            imgElement.style.backgroundImage = `url(${char.image})`;
+            container.appendChild(imgElement);
+        }
+    });
 }
 
 populateRotation('.rotationOne', rotationOne);
