@@ -1226,8 +1226,8 @@ td>a {
     );
     animation: 3s spin linear infinite;
     filter: blur(1rem);
-    transform: scale(1.06);
-    translate: 1px 0;
+    transform: scale(1.04);
+    translate: 0px 0;
 }
 
 @property --angle {
