@@ -331,6 +331,7 @@ body {
     background-repeat: no-repeat;
     height: 34px;
     width: 34px;
+    display: none;
 }
 
 .chest-bt {
