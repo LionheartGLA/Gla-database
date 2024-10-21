@@ -50,11 +50,22 @@
                     </span>
                     <p>Coliseu</p>
                 </div>
+                <div class="header-item coliseu">
+                    <span class="material-symbols-outlined">
+                        celebration
+                    </span>
+                    <p>Evento</p>
+                </div>
             </div>
             <div id="list">
             </div>
         </div>
         <div id="buttons">
+            <div class="bt" id="back-bt">
+                <span class="material-symbols-outlined">
+                    arrow_back
+                </span>
+            </div>
             <div class="bt" id="reset-bt">
                 <p>Resetar</p>
             </div>
@@ -73,10 +84,13 @@
                 </div>
             </div>
         </div>
-        <div class="back-bt">
-            <span class="material-symbols-outlined">
-                arrow_back
-            </span>
+        <div class="event-modal">
+            <div class="event-topbar">
+                <button class="event-bt" id="prev-month">❮</button>
+                <p id="month-name"></p>
+                <button class='event-bt' id="next-month">❯</button>
+            </div>
+            <div class="calendar" id="calendar"></div>
         </div>
     </div>
     <script src="tracklist.js"></script>

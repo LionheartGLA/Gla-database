@@ -45,7 +45,6 @@ body {
     width: 100vw;
     height: 100vh;
     align-items: center;
-    justify-content: center;
     display: flex;
     color: white;
     font-family: 'roboto';
@@ -56,22 +55,19 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--foreground);
-    border: 1px solid var(--border);
-    width: 90%;
-    height: 85%;
-    border-radius: 10px;
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+    height: 93%;
+    box-sizing: border-box;
+    padding: .2rem;
 }
 
 #header {
     display: flex;
-    width: calc(100% - 10px);
+    width: 100%;
     align-items: center;
-    margin: 5px;
     gap: 3px;
-}
-
-.account {
-    max-width: 13%;
+    box-sizing: border-box;
 }
 
 .account>p {
@@ -106,19 +102,17 @@ body {
 }
 
 #list {
-    width: calc(100% - 10px);
-    margin: 5px;
+    width: 100%;
     display: flex;
     background: repeating-linear-gradient(to bottom,
             var(--itemt1) 0,
             var(--itemt1) 50px,
             var(--itemt2) 50px,
             var(--itemt2) 100px);
-    margin-bottom: 0;
-    margin-top: 0;
-    flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .list-item-div {
@@ -172,7 +166,7 @@ body {
     width: 88px;
 }
 
-.number-bt {
+.number-bt, .date-bt {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,7 +177,7 @@ body {
     border-radius: 4px;
 }
 
-.number-bt:hover {
+.number-bt:hover, .date-bt:hover {
     filter: brightness(1.3);
     cursor: pointer;
 }
@@ -230,7 +224,7 @@ body {
 
 #buttons {
     display: flex;
-    width: 90%;
+    width: 99%;
     gap: 5px;
     justify-content: space-between;
 }
@@ -243,7 +237,8 @@ body {
     height: 40px;
     width: 100px;
     border-radius: 10px;
-    margin-top: 10px;
+    margin-top: .5%;
+    margin-bottom: .5%;
     border: 1px solid var(--border);
 }
 
@@ -347,20 +342,100 @@ body {
     display: flex;
 }
 
-.back-bt {
-    position: absolute;
-    top: 1%;
-    left: 1%;
-    border: 1px solid var(--border);
-    background-color: var(--option);
+.event-bt {
+    width: 25px;
+    aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 100px;
-    padding: 5px;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    color: white;
+    border-radius: 5px;
+    filter: brightness(.7);
 }
 
-.back-bt:hover {
-    filter: brightness(1.3);
+.event-bt.active {
+    filter: brightness(1);
+}
+
+.event-bt.active:hover {
     cursor: pointer;
+    filter: brightness(1.3);
+}
+
+.event-modal {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    width: 200px;
+    background: var(--foreground);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 1%;
+    border: 1px solid var(--border);
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.event-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1.5%;
+}
+
+.event-topbar>p {
+    text-align: center;
+    background-color: var(--option);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    max-height: 25px;
+    width: 100%;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: .2rem;
+    margin-top: 5%;
+}
+.day {
+    width: 23px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.day:hover {
+    cursor: pointer;
+    background-color: var(--selected);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.day.active {
+    background-color: var(--border);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.calendar-bt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem;
+    border-radius: 100px;
+}
+
+.calendar-bt:hover {
+    background-color: var(--border);
+    cursor: pointer;
+}
+
+.calendar-bt>span {
+    translate: 0 -6%;
 }
