@@ -25,7 +25,7 @@ const chars = [
     { name: "Trafalgar Law", type: "gold", dates: ["01-11-2024", "27-09-2024", "23-08-2024", "05-07-2024", "17-05-2024"], image: "Img/Medals/Law.png", class: ["Cortante", "Especialista", "DPS", "Supernova", "Fruta do Diabo"] },
     { name: "Leo e Mansherry", type: "gold", dates: ["11-10-2024", "02-08-2024", "05-07-2024", "14-06-2024", "19-04-2024"], image: "Img/Medals/Leo.png", class: ["Especialista", "Suporte", "Realeza", "Fruta do Diabo", "Mulher"] },
     { name: "Monkey D. Luffy", type: "gold", dates: ["27-09-2024", "23-08-2024", "28-06-2024", "03-05-2024"], image: "Img/Medals/Luffy.png", class: ["Bruiser", "Lutador", "Fruta do Diabo", "Chapéu de Palha"] },
-    { name: "Gecko Moria", type: "gold", dates: ["13-10-2023"], image: "Img/Medals/Moria.png", class: ["noRot", "Cortante", "Suporte", "Fruta do Diabo", "Shichibukai"] },
+    { name: "Gecko Moria", type: "gold", dates: ["13-10-2023"], image: "Img/Medals/Moria.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Shichibukai"] },
     { name: "Nami", type: "gold", dates: ["01-11-2024", "27-09-2024", "02-08-2024", "21-06-2024", "17-05-2024"], image: "Img/Medals/Nami.png", class: ["Especialista", "DPS", "Chapéu de Palha", "Mulher"] },
     { name: "Vinsmoke Niji", type: "gold", dates: ["18-10-2024", "02-08-2024", "19-07-2024", "24-05-2024", "26-04-2024"], image: "Img/Medals/Niji.png", class: ["Atirador", "DPS", "Realeza"] },
     { name: "Perona", type: "gold", dates: ["04-10-2024", "16-08-2024", "05-07-2024", "07-06-2024", "22-03-2024"], image: "Img/Medals/Perona.png", class: ["Especialista", "Suporte", "Fruta do Diabo", "Mulher"] },
