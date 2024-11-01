@@ -6,7 +6,7 @@ var accounts = storedAccounts ? JSON.parse(storedAccounts) : [];
 let calendarOpen = false;
 let selectedAccount = undefined;
 
-const eventOn = {isOn: true, start: new Date('2024-10-18'), end: new Date('2024-11-01')};
+const eventOn = {isOn: false, start: new Date('2024-11-01'), end: new Date('2024-11-01')};
 
 if (accounts[0] !== undefined) {
     if (accounts[0].coliseum === undefined) {
