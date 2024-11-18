@@ -167,5 +167,18 @@ Object.entries(filterButtons).forEach(([filter, button]) => {
     button.addEventListener("click", () => handleFilterButtonClick(filter, button));
 });
 
+document.querySelector('.select-none').addEventListener('click', () => {
+    document.querySelectorAll('.char.selected').forEach(charDiv => {
+        const char = chars.find(char => char.name === charDiv.querySelector("p").innerText);
+        char.class.forEach(c => {
+            if (dimaButtons[c]) {
+                const titleElement = dimaButtons[c].querySelector('.count');
+                titleElement.innerText = parseFloat(titleElement.innerText) - 1;
+            }
+            charDiv.classList.remove('selected');
+        });
+    })
+})
+
 window.addEventListener("load", addCharToList);
 document.querySelector('.rot-bt').addEventListener('click', () => window.location.replace('index.html'));
