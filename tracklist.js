@@ -1,12 +1,42 @@
 const list = document.querySelector('#list');
+const listMobile = document.querySelector('#header-mobile');
 
 var storedAccounts = localStorage.getItem('accounts');
 var accounts = storedAccounts ? JSON.parse(storedAccounts) : [];
 
+var selectedAccountMobile = accounts[0] || undefined;
+
 let calendarOpen = false;
 let selectedAccount = undefined;
 
-const eventOn = {isOn: false, start: new Date('2024-11-01'), end: new Date('2024-11-01')};
+document.querySelector('.account-left').addEventListener('click', () => {
+    const mobileAccountIndex = accounts.findIndex(account => account.name === selectedAccountMobile.name);
+    if (mobileAccountIndex > 0) {
+        selectedAccountMobile = accounts[mobileAccountIndex - 1];
+        populateList(accounts, true);
+    }
+})
+
+document.querySelector('.account-right').addEventListener('click', () => {
+    const mobileAccountIndex = accounts.findIndex(account => account.name === selectedAccountMobile.name);
+    if (mobileAccountIndex < (accounts.length - 1)) {
+        selectedAccountMobile = accounts[mobileAccountIndex + 1];
+        populateList(accounts, true);
+    }
+})
+
+const eventOn = { isOn: true, start: new Date('2024-11-15'), end: new Date('2024-11-29') };
+
+const handleResize = () => {
+    const width = window.innerWidth;
+    if (width < 601) {
+        populateList(accounts, true);
+    } else {
+        populateList(accounts, false);
+    }
+}
+
+window.addEventListener('resize', handleResize)
 
 if (accounts[0] !== undefined) {
     if (accounts[0].coliseum === undefined) {
@@ -23,15 +53,18 @@ if (accounts[0] !== undefined) {
     }
 }
 
-if(eventOn.isOn === false){
-    accounts.forEach(account => account.event = {days: [false, false, false, false, false, false, false, false, false, false, false, false, false, false]});
+if (eventOn.isOn === false) {
+    accounts.forEach(account => account.event = { days: [false, false, false, false, false, false, false, false, false, false, false, false, false, false] });
     saveAccounts();
 }
 
-function populateList() {
+function populateList(accountsList, mobile) {
     list.innerHTML = '';
+    listMobile.querySelectorAll('.listMobileItem').forEach(div => div.innerHTML = '');
 
-    accounts.forEach(account => {
+    var listToPopulate = mobile ? [selectedAccountMobile] : accountsList;
+
+    listToPopulate.forEach(account => {
         const listItemDiv = document.createElement('div');
         listItemDiv.className = 'list-item-div';
 
@@ -58,32 +91,33 @@ function populateList() {
         const wantedDiv = document.createElement('div');
         wantedDiv.className = 'list-item';
         const wantedDown = document.createElement('div');
-        wantedDown.className = 'number-bt';
+        wantedDown.className = 'number-bt wantedDown';
         wantedDown.innerHTML = '<span class="material-symbols-outlined">arrow_drop_down</span>';
         wantedDown.addEventListener('click', () => {
             if (account.wanted > 0) {
                 account.wanted -= 2;
                 setWidth(account.wanted, wantedSliderFilled);
                 setNumber(account.wanted, wantedNumber, 30);
+                saveAccounts();
             }
         });
         wantedDiv.appendChild(wantedDown);
 
         const wantedSlider = document.createElement('div');
-        wantedSlider.id = 'wanted-slider';
+        wantedSlider.className = 'wanted-slider';
         const wantedSliderFilled = document.createElement('div');
-        wantedSliderFilled.id = 'wanted-slider-filled';
+        wantedSliderFilled.className = 'wanted-slider-filled';
         setWidth(account.wanted, wantedSliderFilled);
 
         const wantedNumber = document.createElement('p');
-        wantedNumber.id = 'wanted-number';
+        wantedNumber.className = 'wanted-number';
         wantedNumber.textContent = `${account.wanted}/30`;
         wantedSlider.appendChild(wantedNumber);
         wantedSlider.appendChild(wantedSliderFilled);
         wantedDiv.appendChild(wantedSlider);
 
         const wantedUp = document.createElement('div');
-        wantedUp.className = 'number-bt';
+        wantedUp.className = 'number-bt wantedUp';
         wantedUp.innerHTML = '<span class="material-symbols-outlined">arrow_drop_up</span>';
         wantedUp.addEventListener('click', () => {
             if (account.wanted < 30) {
@@ -98,7 +132,7 @@ function populateList() {
         const bossDiv = document.createElement('div');
         bossDiv.className = 'list-item';
         const bossDown = document.createElement('div');
-        bossDown.className = 'number-bt';
+        bossDown.className = 'number-bt bossDown';
         bossDown.innerHTML = '<span class="material-symbols-outlined">arrow_drop_down</span>';
         bossDown.addEventListener('click', () => {
             if (account.boss > 0) {
@@ -111,20 +145,20 @@ function populateList() {
         bossDiv.appendChild(bossDown);
 
         const bossSlider = document.createElement('div');
-        bossSlider.id = 'boss-slider';
+        bossSlider.className = 'boss-slider';
         const bossSliderFilled = document.createElement('div');
-        bossSliderFilled.id = 'boss-slider-filled';
+        bossSliderFilled.className = 'boss-slider-filled';
         setWidth(account.boss, bossSliderFilled);
 
         const bossNumber = document.createElement('p');
-        bossNumber.id = 'boss-number';
+        bossNumber.className = 'boss-number';
         bossNumber.textContent = `${account.boss}/11`;
         bossSlider.appendChild(bossNumber);
         bossSlider.appendChild(bossSliderFilled);
         bossDiv.appendChild(bossSlider);
 
         const bossUp = document.createElement('div');
-        bossUp.className = 'number-bt';
+        bossUp.className = 'number-bt bossUp';
         bossUp.innerHTML = '<span class="material-symbols-outlined">arrow_drop_up</span>';
         bossUp.addEventListener('click', () => {
             if (account.boss < 11) {
@@ -139,7 +173,7 @@ function populateList() {
         const proveDiv = document.createElement('div');
         proveDiv.className = 'list-item';
         const proveDown = document.createElement('div');
-        proveDown.className = 'number-bt';
+        proveDown.className = 'number-bt proveDown';
         proveDown.innerHTML = '<span class="material-symbols-outlined">arrow_drop_down</span>';
         proveDown.addEventListener('click', () => {
             if (account.prove > 0) {
@@ -152,20 +186,20 @@ function populateList() {
         proveDiv.appendChild(proveDown);
 
         const proveSlider = document.createElement('div');
-        proveSlider.id = 'prove-slider';
+        proveSlider.className = 'prove-slider';
         const proveSliderFilled = document.createElement('div');
-        proveSliderFilled.id = 'prove-slider-filled';
+        proveSliderFilled.className = 'prove-slider-filled';
         setWidth(account.prove, proveSliderFilled);
 
         const proveNumber = document.createElement('p');
-        proveNumber.id = 'prove-number';
+        proveNumber.className = 'prove-number';
         proveNumber.textContent = `${account.prove}/8`;
         proveSlider.appendChild(proveNumber);
         proveSlider.appendChild(proveSliderFilled);
         proveDiv.appendChild(proveSlider);
 
         const proveUp = document.createElement('div');
-        proveUp.className = 'number-bt';
+        proveUp.className = 'number-bt proveUp';
         proveUp.innerHTML = '<span class="material-symbols-outlined">arrow_drop_up</span>';
         proveUp.addEventListener('click', () => {
             if (account.prove < 8) {
@@ -183,7 +217,7 @@ function populateList() {
         const globalItems = ['Quiz', 'Count', 'Race', 'Memory', 'Deathmatch'];
         globalItems.forEach((item, index) => {
             const globalItemDiv = document.createElement('div');
-            globalItemDiv.className = 'global-item';
+            globalItemDiv.className = `global-item`;
             const img = document.createElement('img');
             img.src = `Img/Items/${item}.png`;
             globalItemDiv.appendChild(img);
@@ -251,7 +285,7 @@ function populateList() {
             if (index !== -1) {
                 accounts.splice(index, 1);
                 saveAccounts();
-                populateList();
+                populateList(accounts);
             }
         });
 
@@ -260,7 +294,7 @@ function populateList() {
             if (index > 0) {
                 [accounts[index], accounts[index - 1]] = [accounts[index - 1], accounts[index]];
                 saveAccounts();
-                populateList();
+                populateList(accounts);
             }
         });
 
@@ -269,7 +303,7 @@ function populateList() {
             if (index < accounts.length - 1) {
                 [accounts[index], accounts[index + 1]] = [accounts[index + 1], accounts[index]];
                 saveAccounts();
-                populateList();
+                populateList(accounts);
             }
         });
 
@@ -280,7 +314,7 @@ function populateList() {
         calendarButton.innerHTML = '<span class="material-symbols-outlined">calendar_month</span>';
         eventDiv.appendChild(calendarButton);
         calendarButton.addEventListener('click', () => {
-            if(calendarOpen){
+            if (calendarOpen) {
                 calendarOpen = false;
                 document.querySelector('.event-modal').style.display = 'none';
             } else {
@@ -298,13 +332,116 @@ function populateList() {
 
         listItemDiv.appendChild(options);
         listItemDiv.appendChild(accountDiv);
+        listMobile.querySelector('.account-mobile').appendChild(accountDiv.cloneNode(true));
         listItemDiv.appendChild(raidDiv);
+        const raidClone = raidDiv.cloneNode(true);
+        listMobile.querySelector('.raid-mobile').appendChild(raidClone);
+        raidClone.querySelector('#raid').addEventListener('change', () => {
+            account.raid = raidClone.querySelector('#raid').checked;
+            saveAccounts();
+        })
+
         listItemDiv.appendChild(wantedDiv);
+        const wantedClone = wantedDiv.cloneNode(true)
+        listMobile.querySelector('.wanted-mobile').appendChild(wantedClone);
+        wantedClone.querySelector('.wantedDown').addEventListener('click', () => {
+            if (account.wanted > 0) {
+                account.wanted -= 2;
+                setWidth(account.wanted, wantedClone.querySelector('.wanted-slider-filled'));
+                setNumber(account.wanted, wantedClone.querySelector('.wanted-number'), 30);
+                saveAccounts();
+            }
+        });
+        wantedClone.querySelector('.wantedUp').addEventListener('click', () => {
+            if (account.wanted < 30) {
+                account.wanted += 2;
+                setWidth(account.wanted, wantedClone.querySelector('.wanted-slider-filled'));
+                setNumber(account.wanted, wantedClone.querySelector('.wanted-number'), 30);
+                saveAccounts();
+            }
+        });
+
         listItemDiv.appendChild(bossDiv);
+        const bossClone = bossDiv.cloneNode(true)
+        listMobile.querySelector('.boss-mobile').appendChild(bossClone);
+        bossClone.querySelector('.bossDown').addEventListener('click', () => {
+            if (account.boss > 0) {
+                account.boss -= 1;
+                setWidth(account.boss, bossClone.querySelector('.boss-slider-filled'));
+                setNumber(account.boss, bossClone.querySelector('.boss-number'), 11);
+                saveAccounts();
+            }
+        });
+        bossClone.querySelector('.bossUp').addEventListener('click', () => {
+            if (account.boss < 11) {
+                account.boss += 1;
+                setWidth(account.boss, bossClone.querySelector('.boss-slider-filled'));
+                setNumber(account.boss, bossClone.querySelector('.boss-number'), 11);
+                saveAccounts();
+            }
+        });
+
         listItemDiv.appendChild(proveDiv);
+        const proveClone = proveDiv.cloneNode(true)
+        listMobile.querySelector('.prove-mobile').appendChild(proveClone);
+        proveClone.querySelector('.proveDown').addEventListener('click', () => {
+            if (account.prove > 0) {
+                account.prove -= 1;
+                setWidth(account.prove, proveClone.querySelector('.prove-slider-filled'));
+                setNumber(account.prove, proveClone.querySelector('.prove-number'), 8);
+                saveAccounts();
+            }
+        });
+        proveClone.querySelector('.proveUp').addEventListener('click', () => {
+            if (account.prove < 8) {
+                account.prove += 1;
+                setWidth(account.prove, proveClone.querySelector('.prove-slider-filled'));
+                setNumber(account.prove, proveClone.querySelector('.prove-number'), 8);
+                saveAccounts();
+            }
+        });
+
         listItemDiv.appendChild(globalDiv);
+        const globalClone = globalDiv.cloneNode(true);
+        listMobile.querySelector('.global-mobile').appendChild(globalClone);
+        document.querySelectorAll('.global-item').forEach((item, index) => {
+            item.querySelector('.checkbox').addEventListener('change', () => {
+                account.global[index] = item.querySelector('.checkbox').checked;
+                saveAccounts();
+            })
+        })
+
         listItemDiv.appendChild(coliseumDiv);
+        const coliseumClone = coliseumDiv.cloneNode(true);
+        listMobile.querySelector('.coliseum-mobile').appendChild(coliseumClone);
+        document.querySelectorAll('.coliseum-item').forEach((item, index) => {
+            item.querySelector('.checkbox').addEventListener('change', () => {
+                account.coliseum[index] = item.querySelector('.checkbox').checked;
+                saveAccounts();
+            })
+        })
+
         listItemDiv.appendChild(eventDiv);
+        const eventClone = eventDiv.cloneNode(true);
+        listMobile.querySelector('.event-mobile').appendChild(eventClone);
+        eventClone.querySelector('.calendar-bt').addEventListener('click', () => {
+            if (calendarOpen) {
+                calendarOpen = false;
+                document.querySelector('.event-modal').style.display = 'none';
+            } else {
+                const buttonRect = eventClone.querySelector('.calendar-bt').getBoundingClientRect();
+                calendarOpen = true;
+                selectedAccount = account;
+                renderCalendar();
+                const modal = document.querySelector('.event-modal');
+                modal.style.display = 'flex';
+                modal.style.top = `${buttonRect.bottom}px`;
+                modal.style.left = `${buttonRect.left}px`;
+                modal.style.translate = '-42% -123%';
+            }
+        });
+
+
 
         list.appendChild(listItemDiv);
     });
@@ -319,13 +456,19 @@ function setNumber(number, p, max) {
 }
 
 function saveAccounts() {
-    if(selectedAccount){
+    if (selectedAccount) {
         accounts[accounts.indexOf(selectedAccount)] = selectedAccount;
     }
     localStorage.setItem('accounts', JSON.stringify(accounts));
 }
 
-populateList();
+if(accounts.length > 0){
+    if (window.innerWidth < 601) {
+        populateList(accounts, true);
+    } else {
+        populateList(accounts);
+    }
+}
 
 document.querySelector('#add-bt').addEventListener('click', () => {
     const modal = document.querySelector('.modal');
@@ -335,11 +478,22 @@ document.querySelector('#add-bt').addEventListener('click', () => {
 document.querySelector('#save-bt').addEventListener('click', () => {
     const modal = document.querySelector('.modal');
     const input = document.querySelector('#modal-input');
-    accounts.push({ name: input.value, raid: false, wanted: 0, boss: 0, prove: 0, global: [false, false, false, false, false], coliseum: [false, false], event: {days: [false, false, false, false, false, false, false, false, false, false, false, false, false, false] }});
-    input.value = '';
-    populateList();
-    saveAccounts();
-    modal.style.display = 'none';
+    if (accounts.find(account => account.name === input.value) === undefined) {
+        accounts.push({ name: input.value, raid: false, wanted: 0, boss: 0, prove: 0, global: [false, false, false, false, false], coliseum: [false, false], event: { days: [false, false, false, false, false, false, false, false, false, false, false, false, false, false] } });
+        input.value = '';
+        saveAccounts();
+        if(selectedAccountMobile === undefined){
+            selectedAccountMobile = accounts[0]
+        }
+        if (window.innerWidth < 601) {
+            populateList(accounts, true);
+        } else {
+            populateList(accounts, false);
+        }
+        modal.style.display = 'none';
+    } else {
+        alert("Não use o mesmo nome em mais de uma conta.")
+    }
 })
 
 document.querySelector('#reset-bt').addEventListener('click', () => {
@@ -351,7 +505,11 @@ document.querySelector('#reset-bt').addEventListener('click', () => {
         account.global = [false, false, false, false, false];
         account.coliseum = [false, false];
     });
-    populateList();
+    if (window.innerWidth < 601) {
+        populateList(accounts, true);
+    } else {
+        populateList(accounts, false);
+    }
     saveAccounts();
 })
 
@@ -367,19 +525,19 @@ const nextButton = document.getElementById('next-month');
 
 function updateButtonState() {
     const isStartMonth = currentDate.getFullYear() === startDate.getFullYear() &&
-                         currentDate.getMonth() === startDate.getMonth();
+        currentDate.getMonth() === startDate.getMonth();
     const isEndMonth = currentDate.getFullYear() === endDate.getFullYear() &&
-                       currentDate.getMonth() === endDate.getMonth();
+        currentDate.getMonth() === endDate.getMonth();
 
     prevButton.disabled = isStartMonth;
     nextButton.disabled = isEndMonth;
 
-    if(isStartMonth){
+    if (isStartMonth) {
         prevButton.classList.remove('active');
     } else {
         prevButton.classList.add('active');
     }
-    if(isEndMonth){
+    if (isEndMonth) {
         nextButton.classList.remove('active');
     } else {
         nextButton.classList.add('active');
