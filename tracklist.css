@@ -453,7 +453,7 @@ body {
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: calc(100% - 45px);
+        height: 100svh;
         overflow-y: scroll;
     }
 
@@ -516,10 +516,5 @@ body {
 
     #save-bt {
         margin-top: .5rem;
-    }
-
-    #buttons {
-        position: absolute;
-        bottom: 0;
     }
 }
