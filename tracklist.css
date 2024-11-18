@@ -516,4 +516,8 @@ body {
     #save-bt {
         margin-top: .5rem;
     }
+
+    #buttons {
+        position: sticky;
+    }
 }
