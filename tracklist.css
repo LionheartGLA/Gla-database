@@ -453,6 +453,7 @@ body {
         display: flex;
         flex-direction: column;
         width: 100%;
+        height: calc(100% - 45px);
         overflow-y: scroll;
     }
 
@@ -518,6 +519,7 @@ body {
     }
 
     #buttons {
-        position: sticky;
+        position: absolute;
+        bottom: 0;
     }
 }
