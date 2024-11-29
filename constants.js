@@ -4,7 +4,7 @@ const chars = [
     { name: "Scratchmen Apoo", type: "gold", dates: ["29-11-2024", "27-09-2024", "06-09-2024", "28-06-2024", "10-05-2024"], image: "Img/Medals/Apoo.png", class: ["Atirador", "Suporte", "Supernova", "Fruta do Diabo"] },
     { name: "Baby 5", type: "gold", dates: ["29-11-2024", "25-10-2024", "11-10-2024", "06-09-2024", "12-07-2024", "31-05-2024"], image: "Img/Medals/Baby5.png", class: ["DPS", "Atirador", "Cortante", "Fruta do Diabo", "Mulher"] },
     { name: "Bartolomeo", type: "gold", dates: ["15-11-2024", "18-10-2024", "30-08-2024", "05-07-2024", "26-04-2024", "24-05-2024"], image: "Img/Medals/Bartolomeo.png", class: ["Especialista", "DPS", "Fruta do Diabo"] },
-    { name: "Bastille", type: "gold", dates: ["29-11-2024","11-10-2024", "06-09-2024", "19-07-2024", "17-05-2024"], image: "Img/Medals/Bastille.png", class: ["Cortante", "Tanque", "Marinheiro"] },
+    { name: "Bastille", type: "gold", dates: ["29-11-2024", "11-10-2024", "06-09-2024", "19-07-2024", "17-05-2024"], image: "Img/Medals/Bastille.png", class: ["Cortante", "Tanque", "Marinheiro"] },
     { name: "Bellamy", type: "gold", dates: ["15-11-2024", "13-09-2024", "14-06-2024", "17-05-2024"], image: "Img/Medals/Bellamy.png", class: ["Lutador", "DPS", "Fruta do Diabo"] },
     { name: "Jewelry Bonney", type: "gold", dates: ["27-09-2024", "06-09-2024", "12-07-2024", "31-05-2024"], image: "Img/Medals/Bonney.png", class: ["Lutador", "Suporte", "Fruta do Diabo", "Supernova", "Mulher", "Realeza"] },
     { name: "Brook", type: "gold", dates: ["15-11-2024", "04-10-2024", "16-08-2024", "14-06-2024", "10-05-2024"], image: "Img/Medals/Brook.png", class: ["Cortante", "Suporte", "Fruta do Diabo", "Chapéu de Palha"] },
